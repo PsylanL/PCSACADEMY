@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    font-family: 'Exo 2', sans-serif;
+}
+
+
+header{
+    position: absolute;
+    color: white;
+    z-index: 2;
+    margin-top: 3vh;
+    margin-left:5vh;
+    position: fixed;
+    transition: all 100ms ease-out;
+    
+}
+
+.separator{
+    position: absolute;
+    top:6vh;
+    min-height:0.2vh;
+    min-width: 80vh;
+    background-color: #fff;
+}
+
+header.sticky{
+    margin: 0;
+    padding-left: 5vh;
+    padding-top: 3vh;
+    padding-bottom: 4vh;
+    /*padding-right: 150vh;*/
+    background-color: rgb(0, 0, 0);
+    
+}
+
+header.sticky .separator{
+    top: 8vh;
+    min-height: 0.3vh;
+}
+
+header.sticky .navbar{
+    top: 7vh;
+}
+
+
+.navbar{
+    position: absolute;
+    top: 5vh;
+    display: flex;
+    margin-top: 1vh;
+    margin-left: 0.2vh;
+    padding-top: 1vh;
+
+}
+
+.navbar p{
+    margin-right: 3vh;
+}
+
+.navbar p:hover{
+    border-top: 0.2vh solid rgb(240, 255, 31);
+    transition: all 3ms ease;
+    cursor: pointer;
+}
+
+
+.navbar p:nth-child(2):hover{
+    border-top: 0.2vh solid rgb(59, 56, 255);
+}
+.navbar p:nth-child(3):hover{
+    border-top: 0.2vh solid rgb(247, 54, 54);
+}
+
+.container_header{
+
+}
+
+.container1_txt{
+    color: white;
+    max-height: 88.5vh;
+    background: linear-gradient(90deg, #000000 30%, rgba(0, 0, 0, 0) 100%);
+    position: absolute;
+    padding-left: 10vh;
+    top: 0;
+    height: 100%;
+}
+
+.container1_txt div{
+    position: relative;
+    top: 30vh;
+    padding-right: 15vh;
+}
+
+.container1_txt_titulo{
+    width: 400px;
+    font-size: 40px;
+    margin-bottom: 1vh;
+}
+.img_header{
+    width: 100%;
+}
