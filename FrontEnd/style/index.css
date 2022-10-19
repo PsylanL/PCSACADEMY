@@ -1,9 +1,12 @@
 *{
     margin: 0;
     font-family: 'Exo 2', sans-serif;
+    box-sizing: border-box;
 }
 
 
+
+/*HEADER*/
 header{
     position: absolute;
     color: white;
@@ -12,6 +15,7 @@ header{
     margin-left:5vh;
     position: fixed;
     transition: all 100ms ease-out;
+    width: 100%;
     
 }
 
@@ -72,8 +76,26 @@ header.sticky .navbar{
 }
 
 .container_header{
-
+    width: 100%;
 }
+
+.container_header .left{
+    float: left;
+}
+
+.container_header .right{
+   float: left;
+   width: 100%;
+   margin-left: 90%;
+   
+   
+}
+
+#user{
+    width: 20vh;
+}
+
+
 
 .container1_txt{
     color: white;
@@ -99,3 +121,6 @@ header.sticky .navbar{
 .img_header{
     width: 100%;
 }
+
+
+/*END HEADER*/
