@@ -10,16 +10,19 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table (name = "asignature")
+@Table(name = "asignature")
 public class Asignature {
 
     @Id
     @Column(name = "id")
     @GeneratedValue
-    @Getter @Setter
+    @Getter
+    @Setter
     private int id;
 
     @Column(name = "name", nullable = false, length = 50, unique = true)
-    @Getter @Setter
+    @Getter
+    @Setter
     private String name;
+
 }
