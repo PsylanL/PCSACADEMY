@@ -12,7 +12,8 @@ import com.academy.app.backend.models.Student;
 public class StudentDaoImp implements StudentDao {
 
 	//Variable para ejecutar consultas en la base de datos
-	EntityManager entityManager;
+	@PersistenceContext
+	private EntityManager entityManager;
 	@Override
 	
 	//Metodo para registrar
