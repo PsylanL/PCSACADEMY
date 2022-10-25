@@ -1,7 +1,10 @@
+*{
+    margin: 0;
+}
+
 .container1_txt{
     color: white;
     max-height: 88.5vh;
-    background: linear-gradient(90deg, #000000 30%, rgba(0, 0, 0, 0) 100%);
     position: absolute;
     padding-left: 10vh;
     top: 0;
@@ -18,4 +21,48 @@
     width: 41.11vh;
     font-size: 40px;
     margin-bottom: 1vh;
+}
+
+.container2{
+    margin-left: 30vh;
+    margin-right: 30vh;
+}
+
+.container2_title{
+    margin-top: 5vh;
+    margin-left: 55vh;
+}
+
+.container2_grid {
+    display: grid;
+    margin-top: 5vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "d1 d2 d3"
+    "d4 d5 d6";
+    }
+
+.container2_grid_areas{
+    border-radius: 1.2vh;
+    background-color: lightgrey;
+    margin: 1vh;
+    margin-bottom: 2vh;
+    max-width: 35vh;
+    min-height: 35vh;
+}
+
+.footer_container{
+    display: flex;
+    padding-left: 35%;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    padding-top: 1.8vh;
+    min-height: 5vh;
+}
+
+.footer_txt{
+    margin-left: 2vh;
 }
