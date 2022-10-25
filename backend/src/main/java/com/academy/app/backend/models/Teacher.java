@@ -33,7 +33,11 @@ public class Teacher {
     @Getter @Setter
     private String email;
 
-    @Column(name = "phone", nullable = false, length = 20)
+    @Column(name = "phone", nullable = false)
     @Getter @Setter
     private String phone;
+
+    @Column(name = "password", nullable = false)
+    @Getter @Setter
+    private String password;
 }
