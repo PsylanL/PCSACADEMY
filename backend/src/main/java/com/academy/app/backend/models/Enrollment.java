@@ -30,4 +30,8 @@ public class Enrollment {
     @Column (name = "countseen")
     @Getter @Setter
     private int countSeen;
+
+    @Column(name = "idasignature", nullable = false)
+    @Getter @Setter
+    private int idAsignature;
 }

@@ -29,6 +29,6 @@ public class AsignatureController {
     //Metodo que se llama al ejecutar request desde front
     @GetMapping("/list")
     public List<Asignature> list(){
-       return asignatureDao.list();
+        return asignatureDao.list();
     }
 }

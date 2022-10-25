@@ -9,4 +9,6 @@ public interface StudentDao {
 void register(Student student);
 	
 	List<Student> list();
+
+    Student getUserByCredentials(Student student);
 }

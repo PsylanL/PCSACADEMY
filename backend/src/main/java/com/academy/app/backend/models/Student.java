@@ -36,4 +36,8 @@ public class Student {
     @Column(name = "phone", nullable = false, length = 20)
     @Getter @Setter
     private String phone;
+
+    @Column(name = "password", nullable = false)
+    @Getter @Setter
+    private String password;
 }
