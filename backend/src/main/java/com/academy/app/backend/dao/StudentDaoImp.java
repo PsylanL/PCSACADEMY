@@ -25,7 +25,7 @@ public class StudentDaoImp implements StudentDao {
     @SuppressWarnings("unchecked")
 	@Override
 	public List<Student> list() {
-		String query = "from student";
+		String query = "from Student";
 		return entityManager.createQuery(query).getResultList();
 	}
 
