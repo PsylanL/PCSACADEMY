@@ -17,7 +17,7 @@ public class EnrollmentDaoImp implements EnrollmentDao {
     @SuppressWarnings("unchecked") // Suprime las advertencias sobre operaciones genericas no verificadas
     @Override
     public List<Enrollment> schedule(String id) {
-        String query = "";
+        String query = "from ";
         return entityManager.createQuery(query).getResultList();
     }
 
