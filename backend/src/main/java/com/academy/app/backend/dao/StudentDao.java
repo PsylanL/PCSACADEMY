@@ -11,4 +11,6 @@ void register(Student student);
 	List<Student> list();
 
     Student getUserByCredentials(Student student);
+
+    List<Student> search(int id);
 }

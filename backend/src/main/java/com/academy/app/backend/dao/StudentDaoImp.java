@@ -22,7 +22,7 @@ public class StudentDaoImp implements StudentDao {
 
 	// Metodo para registrar
 	public void register(Student student) {
-		entityManager.merge(student);
+		entityManager.persist(student);
 	}
 
 	// Metodo para listar los estudiantes
@@ -51,4 +51,10 @@ public class StudentDaoImp implements StudentDao {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Student> search(int id) {
+		String query = "from Student where id = " + id;
+		return entityManager.createQuery(query).getResultList();
+	}
 }

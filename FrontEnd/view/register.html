@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../style/login.css">
+    <link rel="stylesheet" href="../style/style_all.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--INICIO HEADER-->
+    <header>
+        <div class="container_header">
+            <div class="left">
+                <h1>PCSACADEMY</h1>
+                <div class="separator"></div>
+            </div>
+
+
+            <div class="right">
+                <a href="../view/login.html" id="link_login"><i class="fa-solid fa-user fa-2xl"></i></a>
+            </div>
+
+            <div class="navbar_menu">
+                <p>Home</p>
+                <p>Services</p>
+                <p>Team</p>
+                <p></p>
+            </div>
+
+
+        </div>
+    </header>
+    <!--FIN HEADER-->
+
+    <div class="container1">
+        <img class="img_header" src="../img/fondo1.png" alt="">
+        <div class="container1_menu">
+            <div class="menu_login">
+                <h3>REGISTER AS A NEW STUDENT</h3>
+                <span>Id</span>
+                <div class="input-group mb-3">
+                    <input id="id" type="text" class="form-control" placeholder="Ej: 123456" aria-label="Username"
+                        aria-describedby="basic-addon1">
+                </div>
+                <span>Name</span>
+                <div class="input-group mb-3">
+                    <input id="name" type="text" class="form-control" placeholder="Ej: David" aria-label="name"
+                        aria-describedby="basic-addon1">
+                </div>
+                <span>Last Name</span>
+                <div class="input-group mb-3">
+                    <input id="lastname" type="text" class="form-control" placeholder="Ej: Pimienta" aria-label="name"
+                        aria-describedby="basic-addon1">
+                </div>
+                <span>How old are you?</span>
+                <div class="input-group mb-3">
+                    <input id="years" type="text" class="form-control" placeholder="Ej: 18" aria-label=""
+                        aria-describedby="basic-addon1">
+                </div>
+                <span>Email</span>
+                <div class="input-group mb-3">
+                    <input id="email" type="email" class="form-control" placeholder="Ej: your-email@example.com" aria-label=""
+                        aria-describedby="basic-addon1">
+                </div>
+                <span>Phone</span>
+                <div class="input-group mb-3">
+                    <input id="phone" type="text" class="form-control" placeholder="Ej: 3011234567" aria-label=""
+                        aria-describedby="basic-addon1">
+                </div>
+                <span>Password</span>
+                <div class="input-group mb-3">
+                    <input id="password" type="password" class="form-control" placeholder="********" aria-label="Password"
+                        aria-describedby="basic-addon1">
+                </div>
+                <span>Repeat your Password</span>
+                <div class="input-group mb-3">
+                    <input id="password2" type="password" class="form-control" placeholder="********" aria-label="Password"
+                        aria-describedby="basic-addon1">
+                </div>
+                
+                <button onclick="registerStudent()">Register</button>
+                <a href="login.html">Login</a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <footer>
+
+    </footer>
+
+    <script src="../js/register.js"></script>
+</body>
+
+</html>
+<script src="https://kit.fontawesome.com/13dcc31221.js" crossorigin="anonymous"></script>
+<script src="../js/login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
