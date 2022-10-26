@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;700&display=swap" rel="stylesheet">  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Document</title>
 </head>
 
@@ -45,21 +45,26 @@
     <div class="container1">
         <img class="img_header" src="../img/fondo1.png" alt="">
         <div class="container1_menu">
-            <div class="menu_login">
-                <h3>LOGIN</h3>
-                <span>Email</span>
-                <div class="input-group mb-3">
-                    <input id="login-email" type="text" class="form-control" placeholder="Email" aria-label="Username"
-                        aria-describedby="basic-addon1">
-                </div>
-                <span>Password</span>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Password" aria-label="Password"
-                        aria-describedby="basic-addon1">
-                </div>
-                <button onclick="loginStudent()">Login</button>
-                <a href="register.html">Register</a>
+            
+            <div class="container1_menu_txt">
+                <h1>Start your driving course with the best</h1>
             </div>
+
+          <div class="menu_login">
+            <h3>Login Account</h3>
+            <span>Email</span>
+            <div class="input-group mb-3">
+                <input id="login-email" type="text" class="form-control" placeholder="Example@gmail.com" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <span>Password</span>
+            <div class="input-group mb-3">
+                <input id="login-pass" type="text" class="form-control" placeholder="****************" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <button onclick="loginStudent()" type="button" class="btn btn-secondary">Create Account</button>
+              <button type="button" class="btn btn-primary">Sign in</button>
+
+
+          </div>  
 
         </div>
 
@@ -91,8 +96,6 @@
            
         </div>
     </footer>
-
-    <script src="../js/login.js"></script>
 </body>
 
 </html>
@@ -101,3 +104,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
+    <script src="../js/login.js"></script>

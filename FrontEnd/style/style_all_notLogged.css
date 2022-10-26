@@ -109,9 +109,9 @@ header.sticky .navbar{
 
 /*FOOTER*/
 .footer_container{
-    background-color:#fff;
+    background-color:rgb(226, 225, 225);
     left: 0;
-    color:gray;;
+    color: rgb(94, 94, 94);
     padding-top: 1.8vh;
     min-height: 5vh;
     display: flex;
@@ -136,7 +136,7 @@ header.sticky .navbar{
 
 #link_footer{
     text-decoration: none;
-    color: gray;
+    color: rgb(94, 94, 94);
 }
 
 /*END FOOTER*/
