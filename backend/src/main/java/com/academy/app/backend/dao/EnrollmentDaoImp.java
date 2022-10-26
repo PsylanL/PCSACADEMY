@@ -11,4 +11,14 @@ import com.academy.app.backend.models.Enrollment;
 @Repository
 public class EnrollmentDaoImp implements EnrollmentDao {
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @SuppressWarnings("unchecked") // Suprime las advertencias sobre operaciones genericas no verificadas
+    @Override
+    public List<Enrollment> schedule(String id) {
+        String query = "";
+        return entityManager.createQuery(query).getResultList();
+    }
+
 }
