@@ -109,17 +109,34 @@ header.sticky .navbar{
 
 /*FOOTER*/
 .footer_container{
-    display: flex;
-    padding-left: 35%;
-    background-color: rgb(0, 0, 0);
-    color: #fff;
+    background-color:#fff;
+    left: 0;
+    color:gray;;
     padding-top: 1.8vh;
     min-height: 5vh;
+    display: flex;
 }
 
-.footer_txt{
-    margin-left: 2vh;
+.footer_quick_links{
+    margin-left: 20vh;
 }
 
+.footer_information{
+    margin-left: 50vh;
+}
+
+.footer_social{
+    margin-left: 20vh;
+}
+
+#sub_title
+{
+    color: rgba(0, 0, 0, 0.87);
+}
+
+#link_footer{
+    text-decoration: none;
+    color: gray;
+}
 
 /*END FOOTER*/
