@@ -1,14 +1,11 @@
 
-
 .container1{
     display: flex;
     width: auto;
-    height: auto;
+    height: 100vh;
 }
 .container1_menu{
     color: white;
-    max-height: 88.5vh;
-    background: linear-gradient(90deg, #000000 30%, rgba(0, 0, 0, 0) 100%);
     position: absolute;
     padding-left: 10vh;
     top: 0;

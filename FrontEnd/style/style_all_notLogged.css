@@ -5,7 +5,6 @@
 }
 
 
-
 /*HEADER*/
 header{
     position: absolute;
@@ -107,3 +106,20 @@ header.sticky .navbar{
 
 /*END HEADER*/
 
+
+/*FOOTER*/
+.footer_container{
+    display: flex;
+    padding-left: 35%;
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    padding-top: 1.8vh;
+    min-height: 5vh;
+}
+
+.footer_txt{
+    margin-left: 2vh;
+}
+
+
+/*END FOOTER*/
