@@ -24,29 +24,24 @@ async function list(elem) {
     let scheduleTable = document.getElementById('schedule_table');
     let tableBody = document.getElementById('tbody');
 
-    if(elem != this.data){
-        tableBody.innerHTML = "";
-        //console.log('hola')
-    }
-
     for(element of elem) {
         let row = document.createElement('tr');
         let td = document.createElement('td');
 
         td = document.createElement('td');
-        td.innerText = element.day;
+        td.innerText = element[0];
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.innerText = element.name;
+        td.innerText = element[1];
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.innerText = element.cellPhone;
+        td.innerText = element[2];
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.innerText = element.mail;
+        td.innerText = element[3];
         row.appendChild(td);
 
         tableBody.appendChild(row);
