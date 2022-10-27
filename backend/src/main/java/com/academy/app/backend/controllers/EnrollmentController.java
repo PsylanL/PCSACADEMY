@@ -19,7 +19,7 @@ public class EnrollmentController {
     EnrollmentDao enrollmentDao;
 
     @GetMapping("/schedule/{id}")
-    public List<Enrollment> schedule(@PathVariable String id) {
+    public List<Object> schedule(@PathVariable int id) {
 
         return enrollmentDao.schedule(id);
     }

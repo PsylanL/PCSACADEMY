@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface EnrollmentDao {
 
-    List<Enrollment> schedule(String id);
+    List<Object> schedule(int id);
 
 }
