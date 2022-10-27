@@ -18,6 +18,10 @@ async function loginStudent () {
 
     const response = await request.text();
 
-    console.log(response);
-
+    if (response != 'fail') {
+        let credentials = response.split(',');
+        localStorage.token = credentials[0];
+        localStorage.id = credentials[1];
+        window.location.href = "test.html";
+    }
 }
