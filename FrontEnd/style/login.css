@@ -26,3 +26,13 @@
 .container1_menu_txt{
     margin-top: 20vh;
 }
+
+
+/* modal */
+#modal-register-title{
+    margin-left: 20vh;
+}
+
+#inputs-register{
+    margin-top: 2vh;
+}

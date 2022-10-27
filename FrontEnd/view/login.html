@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="/FrontEnd/style/fontello.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;700&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <title>Document</title>
 </head>
 
@@ -45,55 +45,152 @@
     <div class="container1">
         <img class="img_header" src="../img/fondo1.png" alt="">
         <div class="container1_menu">
-            
+
             <div class="container1_menu_txt">
                 <h1>Start your driving course with the best</h1>
             </div>
 
-          <div class="menu_login">
-            <h3>Login Account</h3>
-            <span>Email</span>
-            <div class="input-group mb-3">
-                <input id="login-email" type="text" class="form-control" placeholder="Example@gmail.com" aria-label="Username" aria-describedby="basic-addon1">
-              </div>
-              <span>Password</span>
-            <div class="input-group mb-3">
-                <input id="login-pass" type="text" class="form-control" placeholder="****************" aria-label="Username" aria-describedby="basic-addon1">
-              </div>
-              <button onclick="loginStudent()" type="button" class="btn btn-secondary">Create Account</button>
-              <button type="button" class="btn btn-primary">Sign in</button>
+            <div class="menu_login">
+                <h3>Login Account</h3>
+                <span>Email</span>
+                <div class="input-group mb-3">
+                    <input id="login-email" type="text" class="form-control" placeholder="Example@gmail.com"
+                        aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <span>Password</span>
+                <div class="input-group mb-3">
+                    <input id="login-pass" type="text" class="form-control" placeholder="****************"
+                        aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target="#modal-register">Create Account</button>
+                <button onclick="loginStudent()" type="button" class="btn btn-primary">Sign in</button>
 
 
-          </div>  
+            </div>
 
         </div>
 
 
     </div>
 
+    <!--Inicio Modal -->
+    <div class="modal fade" id="modal-register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modal-register-title">Register <i class="fa-solid fa-user"></i>
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div id="inputs-register">
+                        <span>Enter you ID</span>
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div id="inputs-register">
+                        <span>Enter you NAME</span>
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div id="inputs-register">
+                        <span>Enter you LAST NAME</span>
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+
+                    <div id="inputs-register">
+                        <span>Enter you AGE</span>
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div id="inputs-register">
+                        <span>Enter you MAIL</span>
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div id="inputs-register">
+                        <span>Enter you PHONE</span>
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div id="inputs-register">
+                        <span>Enter you PASSWORD</span>
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div id="inputs-register">
+                        <span>Repeat your PASSWORD</span>
+                        <div class="input-group flex-nowrap">
+                            <input type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Confirm Registration</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Modal -->
+
     <footer>
         <div class="footer_container">
             <div class="footer_information">
-            <h4 id="sub_title">PCSACADEMY</h4>
-            <h5 class="footer_txt">Privacy policy</h5>
-            <h5 class="footer_txt">Terms & conditions</h5>
-            <h5 class="footer_txt">All rights reserved</h5>
-            <h5 class="footer_txt">© 2022 PCSACADEMY</h5>
+                <h4 id="sub_title">PCSACADEMY</h4>
+                <h5 class="footer_txt">Privacy policy</h5>
+                <h5 class="footer_txt">Terms & conditions</h5>
+                <h5 class="footer_txt">All rights reserved</h5>
+                <h5 class="footer_txt">© 2022 PCSACADEMY</h5>
             </div>
 
-           <div class="footer_quick_links">
-            <h4 id="sub_title">Quick Links</h4>
-            <a id="link_footer" href="index.html"><h5>Home</h5></a>
-            <a id="link_footer" href="login.html"><h5>Login</h5></a>
-           </div>
+            <div class="footer_quick_links">
+                <h4 id="sub_title">Quick Links</h4>
+                <a id="link_footer" href="index.html">
+                    <h5>Home</h5>
+                </a>
+                <a id="link_footer" href="login.html">
+                    <h5>Login</h5>
+                </a>
+            </div>
 
-           <div class="footer_social">
-            <h4 id="sub_title">Follow Us</h4>
-            <a id="link_footer" href=""><h5>Twitter</h5></a>
-            <a id="link_footer" href=""><h5>Facebook</h5></a>
-           </div>
+            <div class="footer_social">
+                <h4 id="sub_title">Follow Us</h4>
+                <a id="link_footer" href="">
+                    <h5>Twitter</h5>
+                </a>
+                <a id="link_footer" href="">
+                    <h5>Facebook</h5>
+                </a>
+            </div>
 
-           
+
         </div>
     </footer>
 </body>
@@ -104,4 +201,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
-    <script src="../js/login.js"></script>
+<script src="../js/login.js"></script>
