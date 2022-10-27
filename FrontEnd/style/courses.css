@@ -34,7 +34,7 @@
     margin-top: 4vh;
     font-weight: 500;
     font-size: 1.5vh;
-    margin-left: 4vh;
+    text-align: center;
     list-style: none;
     
 }
@@ -48,3 +48,10 @@
     transform: scale(1.2);
 }
 
+.active{
+    position: absolute;
+    background-color: rgb(157, 92, 187);
+    width: 100%;
+    left: 0vh;
+    padding: 0;
+}
