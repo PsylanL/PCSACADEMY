@@ -1,10 +1,16 @@
 
 var data = '';
-var  IdStudent = 12;
+var  IdStudent = parseInt(localStorage.id);
+console.log(IdStudent)
 
 async function schedule(Id){
     const getSchedule = 'http://localhost:8080/api/enrollment/schedule/'+Id;
-    let request = await fetch(getSchedule);
+    let request = await fetch(getSchedule,{
+        method: 'GET',
+        headers: {
+            'authorization': localStorage.token
+        }
+    });
     let response = await request.json();
     this.data = response;
     console.log(data);

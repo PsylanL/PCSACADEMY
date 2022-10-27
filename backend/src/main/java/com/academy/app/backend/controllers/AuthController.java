@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.academy.app.backend.dao.StudentDao;
 import com.academy.app.backend.dao.TeacherDao;
 import com.academy.app.backend.models.Student;
+import com.academy.app.backend.models.Teacher;
 import com.academy.app.backend.utils.JWTUtil;
 
 @RestController
@@ -33,7 +34,12 @@ public class AuthController {
         return "fail";
     }
 
-    public String loginTeacher (){
-        return "ok";
+    @PostMapping("/loginteacher")
+    public String loginTeacher (@RequestBody Teacher teacher){
+        Teacher teacherVerified = teacherDao.getUserByCredentials(teacher);
+        if (teacherVerified != null){
+            return jwtUtil.create(String.valueOf(teacherVerified.getId()), teacherVerified.getEmail()) + ',' + teacherVerified.getId();
+        }
+        return "fail";
     }
 }
