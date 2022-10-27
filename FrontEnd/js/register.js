@@ -22,6 +22,8 @@ async function registerStudent() {
             } else {
                 if (confirm(student.id)) {
                     alert('registrado satisfactoriamente');
+                    //id aplication azure: ea48d346-d56d-4bfc-8e0d-e62677de92ca
+                    //client secret: 1ya8Q~ITFVeKif4qdeLUGmHZRgeIDbBsb4tK8bNC
                     window.location.href = 'login.html';
                 } else {
                     alert('error');
