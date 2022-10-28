@@ -70,8 +70,8 @@
                     <input id="login-pass" type="text" class="form-control" placeholder="****************"
                         aria-label="Username" aria-describedby="basic-addon1">
                 </div>
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
-                    data-bs-target="#modal-register">Create Account</button>
+                <button type="button" class="btn btn-secondary"
+                    onclick="openModal()">Create Account</button>
                 <button onclick="loginStudent()" type="button" class="btn btn-primary">Sign in</button>
 
 
@@ -89,7 +89,7 @@
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="modal-register-title">Register <i class="fa-solid fa-user"></i>
                     </h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" onclick="closeModal()" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
@@ -160,7 +160,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
                     <button onclick="registerStudent()" type="button" class="btn btn-primary">Confirm Registration</button>
                 </div>
             </div>

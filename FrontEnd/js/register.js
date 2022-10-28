@@ -23,6 +23,7 @@ async function registerStudent() {
                 if (confirm(student.id)) {
                     notification("success","ACCOUNT CREATED", "Successfully registered");
                     setTimeout(function(){ window.location.href = 'login.html';}, 1000);
+
                     //id aplication azure: ea48d346-d56d-4bfc-8e0d-e62677de92ca
                     //client secret: 1ya8Q~ITFVeKif4qdeLUGmHZRgeIDbBsb4tK8bNC
                 } else {
@@ -34,6 +35,8 @@ async function registerStudent() {
         notification("error","ACCOUNT NOT CREATED", "please check that the passwords match");
     }
 }
+
+
 
 async function confirm(id) {
     fetch('http://localhost:8080/api/student/search/'+id, {
@@ -50,6 +53,19 @@ async function confirm(id) {
             }
             return false;
         });
+}
+
+var myModal = '';
+
+function openModal(){
+    myModal = new bootstrap.Modal(document.getElementById("modal-register"), {
+        keyboard: false
+      })
+      myModal.show();
+}
+
+function closeModal(){
+    myModal.hide();
 }
 
 // Notification
