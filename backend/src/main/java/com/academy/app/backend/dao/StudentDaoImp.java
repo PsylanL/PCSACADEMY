@@ -4,8 +4,11 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.academy.app.backend.models.Student;
+import com.academy.app.backend.utils.EmailSenderService;
 
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
@@ -18,11 +21,15 @@ public class StudentDaoImp implements StudentDao {
 	@PersistenceContext
 	private EntityManager entityManager;
 
+	@Autowired
+	private EmailSenderService emailSenderService;
+
 	@Override
 
 	// Metodo para registrar
 	public void register(Student student) {
 		entityManager.persist(student);
+		emailSenderService.sendEmail(student.getEmail(), "Welcome to our conduction academy", "Hi!, " + student.getName() + " We are excited that you are in our academy and we hope you to drive like a proffesional");
 	}
 
 	// Metodo para listar los estudiantes

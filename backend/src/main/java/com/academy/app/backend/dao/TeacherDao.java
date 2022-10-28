@@ -9,5 +9,7 @@ public interface TeacherDao {
 	void register(Teacher teacher);
 	
 	List<Teacher> list();
+
+    Teacher getUserByCredentials(Teacher teacher);
     
 }
