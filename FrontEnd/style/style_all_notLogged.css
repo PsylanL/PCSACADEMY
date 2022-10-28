@@ -37,12 +37,13 @@ header.sticky{
 }
 
 header.sticky .separator{
-    top: 8vh;
+    top: 8.5vh;
     min-height: 0.3vh;
 }
 
-header.sticky .navbar{
-    top: 8vh;
+header.sticky .navbar_menu{
+
+    top: 7vh;
 }
 
 
@@ -58,6 +59,13 @@ header.sticky .navbar{
 
 .navbar_menu p{
     margin-right: 3vh;
+
+}
+
+#link-navbar
+{
+    text-decoration: none;
+    color: #fff;
 }
 
 .navbar_menu p:hover{
