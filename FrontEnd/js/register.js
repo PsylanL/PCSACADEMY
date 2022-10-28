@@ -21,17 +21,17 @@ async function registerStudent() {
                 alert('error');
             } else {
                 if (confirm(student.id)) {
-                    alert('registrado satisfactoriamente');
+                    notification("success","ACCOUNT CREATED", "Successfully registered");
+                    setTimeout(function(){ window.location.href = 'login.html';}, 1000);
                     //id aplication azure: ea48d346-d56d-4bfc-8e0d-e62677de92ca
                     //client secret: 1ya8Q~ITFVeKif4qdeLUGmHZRgeIDbBsb4tK8bNC
-                    window.location.href = 'login.html';
                 } else {
-                    alert('error');
+                    notification("error","ERROR","","");
                 }
             }
         });
     } else {
-        alert('porfavor verifique que las contrasenas coincidan');
+        notification("error","ACCOUNT NOT CREATED", "please check that the passwords match");
     }
 }
 
@@ -51,3 +51,11 @@ async function confirm(id) {
             return false;
         });
 }
+
+// Notification
+function notification(type,title,msg){
+
+    toastr[type](msg, title);
+}
+
+// End Notification

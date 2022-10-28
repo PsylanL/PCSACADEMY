@@ -25,3 +25,12 @@ async function loginStudent () {
         window.location.href = "test.html";
     }
 }
+
+
+// Notification
+function notification(type,title,msg){
+
+    toastr[type](msg, title);
+}
+
+// End Notification
