@@ -36,6 +36,11 @@ public class StudentController {
         studentDao.register(student);
     }
     
+    @PostMapping("/confirm")
+    public void confirmRegister (@RequestBody Student student) {
+        studentDao.confirmRegister(student);
+    }
+
     //Metodo que se llama al ejecutar request desde front
     @GetMapping("/list")
     public List<Student> list(){

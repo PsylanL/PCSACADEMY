@@ -29,6 +29,10 @@ public class StudentDaoImp implements StudentDao {
 	// Metodo para registrar
 	public void register(Student student) {
 		entityManager.persist(student);
+	}
+
+	@Override
+	public void confirmRegister(Student student) {
 		emailSenderService.sendEmail(student.getEmail(), "Welcome to our conduction academy", "Hi!, " + student.getName() + " We are excited that you are in our academy and we hope you to drive like a proffesional");
 	}
 
@@ -64,4 +68,6 @@ public class StudentDaoImp implements StudentDao {
 		String query = "from Student where id = " + id;
 		return entityManager.createQuery(query).getResultList();
 	}
+
+	
 }

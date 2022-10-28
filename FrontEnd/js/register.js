@@ -17,29 +17,37 @@ async function registerStudent() {
             },
             body: JSON.stringify(student)
         }).then((response) => {
-            if (response.status != 200){
+            if (response.status != 200) {
                 alert('error');
             } else {
                 if (confirm(student.id)) {
-                    notification("success","ACCOUNT CREATED", "Successfully registered");
-                    setTimeout(function(){ window.location.href = 'login.html';}, 1000);
+                    notification("success", "ACCOUNT CREATED", "Successfully registered");
+                    setTimeout(function () { closeModal() }, 1000);
 
+                    fetch('http://localhost:8080/api/student/confirm', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(student)
+                    });
                     //id aplication azure: ea48d346-d56d-4bfc-8e0d-e62677de92ca
                     //client secret: 1ya8Q~ITFVeKif4qdeLUGmHZRgeIDbBsb4tK8bNC
                 } else {
-                    notification("error","ERROR","","");
+                    notification("error", "ERROR", "", "");
                 }
             }
         });
     } else {
-        notification("error","ACCOUNT NOT CREATED", "please check that the passwords match");
+        notification("error", "ACCOUNT NOT CREATED", "please check that the passwords match");
     }
 }
 
 
 
 async function confirm(id) {
-    fetch('http://localhost:8080/api/student/search/'+id, {
+    fetch('http://localhost:8080/api/student/search/' + id, {
         method: 'GET',
         headers: {
             'Accept': 'application/json',
@@ -48,7 +56,7 @@ async function confirm(id) {
     }).then(
         async (response) => {
             let response2 = await response.json();
-            if(response2[0].id == document.getElementById("id").value && response2[0].email == document.getElementById("email").value){
+            if (response2[0].id == document.getElementById("id").value && response2[0].email == document.getElementById("email").value) {
                 return true;
             }
             return false;
@@ -57,19 +65,19 @@ async function confirm(id) {
 
 var myModal = '';
 
-function openModal(){
+function openModal() {
     myModal = new bootstrap.Modal(document.getElementById("modal-register"), {
         keyboard: false
-      })
-      myModal.show();
+    })
+    myModal.show();
 }
 
-function closeModal(){
+function closeModal() {
     myModal.hide();
 }
 
 // Notification
-function notification(type,title,msg){
+function notification(type, title, msg) {
 
     toastr[type](msg, title);
 }
