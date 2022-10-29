@@ -31,23 +31,6 @@ const expresiones = {
 
 /*FIN NOTIFICATIONS */
 
-/*async function confirm(id) {
-    fetch('http://localhost:8080/api/student/search/' + id, {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-    }).then(
-        async (response) => {
-            let response2 = await response.json();
-            if (response2[0].id == document.getElementById("id").value && response2[0].email == document.getElementById("email").value) {
-                return true;
-            }
-            return false;
-        });
-}*/
-
 async function register(student){
     
 

@@ -39,10 +39,6 @@ public class Enrollment {
     @Setter
     private int countSeen;
 
-    // @ManyToOne
-    // @JoinColumn(name = "id")
-    // public Asignature asignature;
-
     @Column(name = "idasignature", nullable = false)
     @Getter
     @Setter

@@ -28,10 +28,18 @@ public class EnrollmentController {
     @GetMapping("/schedule/{id}")
     public List<Object> schedule(@PathVariable int id, @RequestHeader(value = "authorization") String token) {
         int idStudent = Integer.parseInt(jwtUtil.getKey(token));
-        if(idStudent == id){
+        if (idStudent == id) {
             return enrollmentDao.schedule(id);
         }
         return new ArrayList<>();
     }
 
+    @GetMapping("/list/{id}")
+    public List<Object> listar(@PathVariable int id, @RequestHeader(value = "authorization") String token) {
+        int idStudent = Integer.parseInt(jwtUtil.getKey(token));
+        if (idStudent == id) {
+            return enrollmentDao.list(id);
+        }
+        return new ArrayList<>();
+    }
 }
