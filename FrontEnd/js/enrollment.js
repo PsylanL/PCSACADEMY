@@ -56,37 +56,72 @@ async function list(elem) {
 }
 var optionsS = '';
 async function asig(){
-    const getClients = "http://localhost:8080/api/asignature/list";
-    let request = await fetch(getClients);
+    const getAsign = "http://localhost:8080/api/asignature/list";
+    let request = await fetch(getAsign);
     let response = await request.json();
     this.optionsS = response;
-    console.log(this.optionsS);
 }
 
 window.onload = asig(); 
 
 var myModal = '';
 function openModal() {
-    console.log('Hola');
 
     myModal = new bootstrap.Modal(document.getElementById("modal-register"), {
         keyboard: false
     })
-    console.log(optionsS.length);
     var selectOp = document.getElementById("idAsignature");
     $('#idStudent').val(IdStudent);
 
     for(let i =0; i<optionsS.length;i++){
-        selectOp.options[i] = new Option(optionsS[i].name,'valor:' +i);
+        selectOp.options[i+1] = new Option(optionsS[i].name,'value =' +i);
     }
-
 
     myModal.show();
 }
 
+    
+    
 function closeModal() {
     myModal.hide();
 }
+
+async function selectChange(){
+    
+    var valSelect = document.getElementById('idAsignature');
+    var selected = valSelect.options[valSelect.selectedIndex].text;
+    var ban = 0;
+    for(let as of optionsS){
+        if(selected == as.name){
+            $('#idAs').val(as.id);
+            ban = 1;
+        }
+    }
+    if(ban == 0){
+        $('#idAs').val('-');
+
+    }
+    if( $('#idAs').val() !=  '-' ){
+        var idAsigna = $('#idAs').val();
+        const getGroup= "http://localhost:8080/api/classgroup/list/"+idAsigna;
+        let request = await fetch(getGroup);
+        let response = await request.json();
+        var selectGroup = document.getElementById("idGroup");
+        if(response.length>0){
+
+            for(let i =0; i<response.length;i++){
+                selectGroup.options[i] = new Option(response[i].id + ' '+ response[i].schedule,'value =' +i);
+            }
+        }else{
+            $("#idGroup").empty()
+        }
+       
+
+    }
+   
+    
+}
+
 
 
 // Notification

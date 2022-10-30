@@ -67,9 +67,16 @@
                 </div>
 
                 <div id="inputs-register">
-                  <span>ID Asignature</span>
+                  <span>Asignature | Id Asignature</span>
+                  <span id="nameAsig"></span>
                   <div class="input-group flex-nowrap">
-                      <select class="form-select" name="asignature" id="idAsignature"></select>
+                      <select class="form-select form-select-sm" name="asignature" id="idAsignature" onchange="selectChange()">
+                        <option value="0">Seleccione</option>
+
+                      </select>
+                      <input id="idAs" type="number" class="form-control"
+                      aria-describedby="addon-wrapping" readonly> 
+                      
                   </div>
               </div>
 
