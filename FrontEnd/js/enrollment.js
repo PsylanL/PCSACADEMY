@@ -12,7 +12,6 @@ async function listEnrollment(Id){
     });
     let response = await request.json();
     this.data = response;
-    console.log(this.data);
     list(this.data);
 }
 
@@ -55,19 +54,40 @@ async function list(elem) {
     elem = '';
 
 }
+var optionsS = '';
+async function asig(){
+    const getClients = "http://localhost:8080/api/asignature/list";
+    let request = await fetch(getClients);
+    let response = await request.json();
+    this.optionsS = response;
+    console.log(this.optionsS);
+}
+
+window.onload = asig(); 
 
 var myModal = '';
-
 function openModal() {
+    console.log('Hola');
+
     myModal = new bootstrap.Modal(document.getElementById("modal-register"), {
         keyboard: false
     })
+    console.log(optionsS.length);
+    var selectOp = document.getElementById("idAsignature");
+    $('#idStudent').val(IdStudent);
+
+    for(let i =0; i<optionsS.length;i++){
+        selectOp.options[i] = new Option(optionsS[i].name,'valor:' +i);
+    }
+
+
     myModal.show();
 }
 
 function closeModal() {
     myModal.hide();
 }
+
 
 // Notification
 function notification(type, title, msg) {
@@ -76,3 +96,91 @@ function notification(type, title, msg) {
 }
 
 // End Notification
+
+/*REGISTER*/
+
+async function register(enrollment){
+    
+
+    const request = await fetch('http://localhost:8080/api/enrollment/register', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            
+        },
+        body: JSON.stringify(enrollment)
+        
+    });
+    notification("success", "REGISTERED ENROLL ", "Successfully Registered");
+    setTimeout(function(){ window.location.href = 'enrollment.html';}, 1000);
+} 
+
+
+async function registerEnroll() {
+let enroll = {};
+
+
+/*enroll.id = document.getElementById("id").value;
+enroll.name = document.getElementById("name").value;
+enroll.countseen = document.getElementById("lastname").value;
+enroll.idasignature = document.getElementById("years").value;
+enroll.idgroup = document.getElementById("email").value;
+enroll.idstudent = document.getElementById("phone").value;
+
+let check = 0;      
+for(let i=0; i < this.data.length; i++){ 
+    if(student.id == data[i].id){
+        check = 1;         
+        }
+}
+switch (check){
+    case 0:{
+        if( student.id != '' && student.name != '' && student.lastName  != '' && student.years != '' && student.email != '' &&   student.phone != '' &&   student.password != '' ){
+
+            if(expresiones.id.test(student.id)){
+
+                if(expresiones.nombre.test(student.name)){
+
+                     if(expresiones.nombre.test(student.lastName)){
+
+                        if(expresiones.correo.test(student.email )){
+
+                            if(expresiones.telefono.test(student.phone )){
+
+                                if (student.password == document.getElementById('password2').value) {
+                                
+                                 register(student);
+
+                                }else {
+                                    notification("error", "ACCOUNT NOT CREATED", "please check that the passwords match");
+                                }
+
+                           }else{
+                                notification("error", "Enter a valid phone", "Please verify from 7-14 digits ")
+                            }
+
+                           }else{
+                                notification("error", "Enter a valid Email", "Please verify ")
+                            }
+                    }else{
+                        notification("error", "Enter a valid Last Name", " Last Name from 4 to 40 letter name")
+                    }
+                }else{
+                    notification("error", "Enter a valid Name", " Name from 4 to 40 letter name")
+                }
+            }else{
+                notification("error", "Enter a valid Id", " Enter only numbers, with range (3-14 digits)")
+            }                 
+        }else {
+            notification("error", "INCOMPLETE FIELDS", "Please verify")
+        }
+        break;
+    }
+
+    case 1:{
+        notification("error", "ID ALREADY EXISTS", "Incomplete Registration");
+        break;
+    }
+} */
+}

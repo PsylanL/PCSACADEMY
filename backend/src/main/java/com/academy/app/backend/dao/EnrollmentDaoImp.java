@@ -6,6 +6,8 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
+import com.academy.app.backend.models.Enrollment;
+
 @Transactional
 @Repository
 public class EnrollmentDaoImp implements EnrollmentDao {
@@ -30,6 +32,11 @@ public class EnrollmentDaoImp implements EnrollmentDao {
                 +
                 "where e.idstudent =" + id;
         return entityManager.createNativeQuery(sqlQuery).getResultList();
+    }
+
+    @Override
+    public void register(Enrollment enrollment) {
+        entityManager.persist(enrollment);
     }
 
 }

@@ -25,6 +25,12 @@ public class EnrollmentController {
     @Autowired
     private JWTUtil jwtUtil;
 
+    // Metodo que se llama al ejecutar request desde front
+    @PostMapping("/register")
+    public void registerStudent(@RequestBody Enrollment enrollment) {
+        enrollmentDao.register(enrollment);
+    }
+
     @GetMapping("/schedule/{id}")
     public List<Object> schedule(@PathVariable int id, @RequestHeader(value = "authorization") String token) {
         int idStudent = Integer.parseInt(jwtUtil.getKey(token));
