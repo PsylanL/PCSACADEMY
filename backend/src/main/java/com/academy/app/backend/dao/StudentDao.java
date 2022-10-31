@@ -13,4 +13,6 @@ void register(Student student);
     Student getUserByCredentials(Student student);
 
     List<Student> search(int id);
+
+    void confirmRegister(Student student);
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.academy.app.backend.models.Student;
+import com.academy.app.backend.utils.EmailSenderService;
 
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
@@ -22,6 +23,9 @@ public class StudentController {
 
 	@Autowired
     StudentDao studentDao;
+
+    @Autowired
+    private EmailSenderService emailSenderService;
 	
 	//Metodo que se llama al ejecutar request desde front
     @PostMapping("/register")
@@ -32,6 +36,11 @@ public class StudentController {
         studentDao.register(student);
     }
     
+    @PostMapping("/confirm")
+    public void confirmRegister (@RequestBody Student student) {
+        studentDao.confirmRegister(student);
+    }
+
     //Metodo que se llama al ejecutar request desde front
     @GetMapping("/list")
     public List<Student> list(){

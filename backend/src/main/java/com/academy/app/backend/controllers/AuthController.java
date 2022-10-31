@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.academy.app.backend.dao.StudentDao;
 import com.academy.app.backend.dao.TeacherDao;
 import com.academy.app.backend.models.Student;
+import com.academy.app.backend.models.Teacher;
+import com.academy.app.backend.utils.JWTUtil;
 
 @RestController
 @RequestMapping ("/api/auth")
@@ -20,16 +22,24 @@ public class AuthController {
     @Autowired
     private TeacherDao teacherDao;
 
+    @Autowired
+    private JWTUtil jwtUtil;
+
     @PostMapping("/loginStudent")
     public String loginStudent (@RequestBody Student student) {
         Student studentVerified = studentDao.getUserByCredentials(student);
         if (studentVerified != null){
-            return "ok";
+            return jwtUtil.create(String.valueOf(studentVerified.getId()), studentVerified.getEmail()) + ',' + studentVerified.getId();
         }
         return "fail";
     }
 
-    public String loginTeacher (){
-        return "ok";
+    @PostMapping("/loginteacher")
+    public String loginTeacher (@RequestBody Teacher teacher){
+        Teacher teacherVerified = teacherDao.getUserByCredentials(teacher);
+        if (teacherVerified != null){
+            return jwtUtil.create(String.valueOf(teacherVerified.getId()), teacherVerified.getEmail()) + ',' + teacherVerified.getId();
+        }
+        return "fail";
     }
 }

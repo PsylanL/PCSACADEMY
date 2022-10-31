@@ -1,10 +1,14 @@
 package com.academy.app.backend.dao;
 
-import com.academy.app.backend.models.Enrollment;
 import java.util.List;
+
+import com.academy.app.backend.models.Enrollment;
 
 public interface EnrollmentDao {
 
-    List<Enrollment> schedule(String id);
+    void register(Enrollment enrollment);
 
+    List<Object> schedule(int id);
+
+    List<Object> list(int id);
 }

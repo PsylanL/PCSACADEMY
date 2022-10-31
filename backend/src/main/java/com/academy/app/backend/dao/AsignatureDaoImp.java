@@ -11,21 +11,22 @@ import com.academy.app.backend.models.Asignature;
 @Repository
 public class AsignatureDaoImp implements AsignatureDao {
 
-	//Variable para consultas en la base de datos
-	EntityManager entityManager;
-	
-	//Metodo para registrar una asignatura
+	// Variable para consultas en la base de datos
+	@PersistenceContext
+	private EntityManager entityManager;
+
+	// Metodo para registrar una asignatura
 	@Override
 	public void register(Asignature asignature) {
 		entityManager.merge(asignature);
 	}
-	
-	//Metodo para listar todas las asignaturas
-    @SuppressWarnings("unchecked")
+
+	// Metodo para listar todas las asignaturas
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Asignature> list() {
-    	String query ="from asignature";
-    	return entityManager.createQuery(query).getResultList();
+		String query = "from Asignature";
+		return entityManager.createQuery(query).getResultList();
 	}
 
 }

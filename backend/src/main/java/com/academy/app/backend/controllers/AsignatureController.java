@@ -12,23 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.academy.app.backend.models.Asignature;
 import com.academy.app.backend.dao.AsignatureDao;
 
-
 @RestController
 @RequestMapping("/api/asignature")
 public class AsignatureController {
-	
-	@Autowired
-	AsignatureDao asignatureDao;
 
-	//Metodo que se llama al ejecutar request desde front
+    @Autowired
+    AsignatureDao asignatureDao;
+
+    // Metodo que se llama al ejecutar request desde front
     @PostMapping("/register")
-    public void registerAsignature (@RequestBody Asignature asignature) {
+    public void registerAsignature(@RequestBody Asignature asignature) {
         asignatureDao.register(asignature);
     }
-    
-    //Metodo que se llama al ejecutar request desde front
+
+    // Metodo que se llama al ejecutar request desde front
     @GetMapping("/list")
-    public List<Asignature> list(){
+    public List<Asignature> list() {
         return asignatureDao.list();
     }
 }
