@@ -2,6 +2,10 @@
     margin: 0;
 }
 
+a{
+    text-decoration: none !important;
+}
+
 .container1_txt{
     color: white;
     max-height: 88.5vh;
@@ -30,7 +34,7 @@
 
 .container2_title{
     margin-top: 5vh;
-    margin-left: 55vh;
+    margin-left: 43vh;
 }
 
 .container2_grid {
@@ -47,27 +51,27 @@
     }
 
 .d1{
-    background-image: url(../img/home_d1.png);
+    background-image: url(../img/home_d1.jpg);
 }
 
 .d2{
-    background-image: url(../img/home_d1.png);
+    background-image: url(../img/11_CursoMotos_ENMotocicleta.jpg);
 }
 
 .d3{
-    background-image: url(../img/home_d1.png);
+    background-image: url(../img/home_D5.png);
 }
 
 .d4{
-    background-image: url(../img/home_d1.png);
+    background-image: url(../img/home_d3.png);
 }
 
 .d5{
-    background-image: url(../img/home_d1.png);
+    background-image: url(../img/home_d4.png);
 }
 
 .d6{
-    background-image: url(../img/home_d1.png);
+    background-image: url(../img/license.png);
 }
 
 .container2_grid_areas{
