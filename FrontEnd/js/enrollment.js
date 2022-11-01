@@ -219,3 +219,25 @@ switch (check){
     }
 } */
 }
+
+
+var ModalPensum = '';
+//pensum
+function openModalPensum(){
+    ModalPensum = new bootstrap.Modal(document.getElementById("modal-pensum"), {
+        keyboard: false
+    })
+
+    img = document.querySelector("#body-modal-pensum");
+    img.innerHTML = '<img src="../img/pensum.jpg" alt="" id="img-pensum">';
+
+    ModalPensum.show();
+}
+
+function closeModalPensum(){
+    ModalPensum.hide();
+}
+
+
+
+//fin pensum
