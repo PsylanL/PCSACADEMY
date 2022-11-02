@@ -51,16 +51,8 @@
                   <button type="button" class="btn-close" onclick="closeModal()" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-
-                  <div id="inputs-register">
-                      <span>Enter ID</span>
-                      <div class="input-group flex-nowrap">
-                          <input id="id" type="text" class="form-control"
-                              aria-describedby="addon-wrapping">
-                      </div>
-                  </div>
-
-                  <div id="inputs-register">
+                
+                <div id="inputs-register">
                     <span>Countseen</span>
                     <div class="input-group flex-nowrap">
                         <input id="countseen" type="text" class="form-control"
@@ -83,10 +75,13 @@
               </div>
 
                   <div id="inputs-register">
-                      <span> Group</span>
+                      <span> Group | Id Group</span>
                       <div class="input-group flex-nowrap">
-                        <select class="form-select" name="group" id="idGroup"></select>
-
+                        <select class="form-select" name="group" id="idGroup" onchange="selectChangeGroup()">
+                           <option value="0">Seleccione</option>
+                        </select>
+                        <input id="idGro" type="number" class="form-control"
+                      aria-describedby="addon-wrapping" readonly> 
                       </div>
                   </div>      
                   

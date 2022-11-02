@@ -4,7 +4,10 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+
+import org.hibernate.internal.util.type.PrimitiveWrapperHelper.BooleanDescriptor;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.academy.app.backend.models.Enrollment;
 
@@ -27,7 +30,7 @@ public class EnrollmentDaoImp implements EnrollmentDao {
 
     @Override
     public List<Object> list(int id) {
-        String sqlQuery = "select a.id, idgroup, countseen, idasignature, a.name as asignatureName " +
+        String sqlQuery = "select e.id, idgroup, countseen, idasignature, a.name as asignatureName " +
                 "from Enrollment e inner join Asignature a on e.idasignature = a.id "
                 +
                 "where e.idstudent =" + id;
@@ -35,8 +38,16 @@ public class EnrollmentDaoImp implements EnrollmentDao {
     }
 
     @Override
-    public void register(Enrollment enrollment) {
-        entityManager.persist(enrollment);
-    }
+    public Boolean register(Enrollment enrollment) {
+        String query = "select countseen from Enrollment where idAsignature= " + enrollment.getIdAsignature()
+                + " and idStudent = " + enrollment.getIdStudent();
+        List<Enrollment> list = entityManager.createNativeQuery(query).getResultList();
 
+        if (list.size() < 2) {
+            entityManager.persist(enrollment);
+            return true;
+        }
+        return false;
+
+    }
 }
