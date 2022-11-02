@@ -173,19 +173,18 @@ async function register(enrollU){
     }).then((response )=> {
         if(response.status != 200){
             msg = 'ERROR 555';
+            notification("error", msg, "Has visto esta asignatura dos veces, no puedes matricularla");
 
         }else{
             msg = 'REGISTRADO CORRECTAMENTE';
-            
+            notification("success", msg, "");
+
         }
-        console.log(msg);
+        
     }
 
     );
-    console.log(Request);
-
-   
-    //setTimeout(function(){ window.location.href = 'enrollment.html';}, 1000);
+    setTimeout(function(){ window.location.href = 'enrollment.html';}, 1100);
 } 
 
 /*EXPRESIONES*/
@@ -201,19 +200,11 @@ const expresiones = {
 
 async function registerEnroll() {
     let enroll = {};
-    enroll.countSeen = parseInt($('#countseen').val());
+    enroll.countSeen = 0;
     enroll.idAsignature = parseInt($('#idAs').val());
     enroll.idGroup = parseInt($('#idGro').val());
     enroll.idStudent = IdStudent;
-
-    console.log(enroll.countSeen);
-    console.log(enroll.idAsignature);
-    console.log(enroll.idGroup);
-    console.log(enroll.idStudent);
-
-                         register(enroll);
-                        
-                 
+         register(enroll);              
 }
 
 

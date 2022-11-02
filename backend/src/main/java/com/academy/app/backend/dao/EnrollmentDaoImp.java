@@ -44,6 +44,7 @@ public class EnrollmentDaoImp implements EnrollmentDao {
         List<Enrollment> list = entityManager.createNativeQuery(query).getResultList();
 
         if (list.size() < 2) {
+            enrollment.setCountSeen((list.size() + 1));
             entityManager.persist(enrollment);
             return true;
         }
