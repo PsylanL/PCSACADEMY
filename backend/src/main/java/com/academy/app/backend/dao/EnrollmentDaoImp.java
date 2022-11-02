@@ -25,6 +25,7 @@ public class EnrollmentDaoImp implements EnrollmentDao {
         return entityManager.createNativeQuery(sqlQuery).getResultList();
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<Object> list(int id) {
         String sqlQuery = "select a.id, idgroup, countseen, idasignature, a.name as asignatureName " +

@@ -15,6 +15,7 @@ public class ClassGroupDaoImp implements ClassGroupDao {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @SuppressWarnings("unchecked")
     @Override
     public List<ClassGroup> listSearch(int id) {
         String query = "from ClassGroup Where idasignature = " + id;

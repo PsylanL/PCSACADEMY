@@ -10,9 +10,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "enrollment")
-public class Enrollment {
-
+@Table(name = "enrollmentcourse")
+public class EnrollmentCourse {
     @Id
     @Column(name = "id")
     @GeneratedValue
@@ -20,25 +19,13 @@ public class Enrollment {
     @Setter
     private int id;
 
-    @Column(name = "idgroup", nullable = false)
-    @Getter
-    @Setter
-    private int idGroup;
-
-    // @ManyToOne
-    // @JoinColumn(name = "Student")
     @Column(name = "idstudent", nullable = false)
     @Getter
     @Setter
     private int idStudent;
 
-    @Column(name = "countseen")
+    @Column(name = "idcourse", nullable = false)
     @Getter
     @Setter
-    private int countSeen;
-
-    @Column(name = "idasignature", nullable = false)
-    @Getter
-    @Setter
-    private int idAsignature;
+    private int idCourse;
 }

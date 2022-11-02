@@ -10,8 +10,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "asignature")
-public class Asignature {
+@Table(name = "course")
+public class Course {
 
     @Id
     @Column(name = "id")
@@ -19,15 +19,8 @@ public class Asignature {
     @Getter
     @Setter
     private int id;
-
-    @Column(name = "name", nullable = false, length = 50, unique = true)
-    @Getter
-    @Setter
+    
+    @Column(name = "name", nullable = false, length = 50)
+    @Getter @Setter
     private String name;
-
-    @Column(name = "course", nullable = false, length = 50)
-    @Getter
-    @Setter
-    private int course;
-
 }
