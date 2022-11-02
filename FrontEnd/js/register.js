@@ -149,10 +149,3 @@ function closeModal() {
     myModal.hide();
 }
 
-// Notification
-function notification(type, title, msg) {
-
-    toastr[type](msg, title);
-}
-
-// End Notification

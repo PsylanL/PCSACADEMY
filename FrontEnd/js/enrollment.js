@@ -86,6 +86,7 @@ function closeModal() {
     myModal.hide();
 }
 
+var dataGroup = '';
 async function selectChange(){
     
     var valSelect = document.getElementById('idAsignature');
@@ -101,25 +102,48 @@ async function selectChange(){
         $('#idAs').val('-');
 
     }
-    if( $('#idAs').val() !=  '-' ){
+    if( $('#idAs').val() !=  '-'  &&  $('#idAs').val() !=  ''){
         var idAsigna = $('#idAs').val();
         const getGroup= "http://localhost:8080/api/classgroup/list/"+idAsigna;
         let request = await fetch(getGroup);
         let response = await request.json();
+        this.dataGroup = response;
         var selectGroup = document.getElementById("idGroup");
-        if(response.length>0){
+        if(dataGroup.length>0){
 
-            for(let i =0; i<response.length;i++){
-                selectGroup.options[i] = new Option(response[i].id + ' '+ response[i].schedule,'value =' +i);
+            for(let i =0; i<dataGroup.length;i++){
+                selectGroup.options[i+1] = new Option(dataGroup[i].schedule,'value =' +i);
             }
+            
         }else{
-            $("#idGroup").empty()
+            $("#idGroup").empty();
+            selectGroup.options[0] = new Option('Seleccione','value =' +0);
+
         }
        
 
     }
    
     
+}
+
+async function selectChangeGroup(){
+
+    var valSelectGroup = document.getElementById('idGroup');
+    var selectedGroup = valSelectGroup.options[valSelectGroup.selectedIndex].text;
+    var ban = 0;
+    for(let as of dataGroup){
+        if(selectedGroup == as.schedule){
+            $('#idGro').val(as.id);
+            ban = 1;
+        }
+    }
+    if(ban == 0){
+        $('#idGro').val('-');
+
+    }
+
+
 }
 
 
@@ -134,9 +158,9 @@ function notification(type, title, msg) {
 
 /*REGISTER*/
 
-async function register(enrollment){
+async function register(enrollU){
     
-
+    var msg = '';
     const request = await fetch('http://localhost:8080/api/enrollment/register', {
         method: 'POST',
         headers: {
@@ -144,80 +168,43 @@ async function register(enrollment){
             'Content-Type': 'application/json',
             
         },
-        body: JSON.stringify(enrollment)
+        body: JSON.stringify(enrollU)
         
-    });
-    notification("success", "REGISTERED ENROLL ", "Successfully Registered");
-    setTimeout(function(){ window.location.href = 'enrollment.html';}, 1000);
+    }).then((response )=> {
+        if(response.status != 200){
+            msg = 'ERROR 555';
+            notification("error", msg, "Has visto esta asignatura dos veces, no puedes matricularla");
+
+        }else{
+            msg = 'REGISTRADO CORRECTAMENTE';
+            notification("success", msg, "");
+
+        }
+        
+    }
+
+    );
+    setTimeout(function(){ window.location.href = 'enrollment.html';}, 1100);
 } 
+
+/*EXPRESIONES*/
+
+const expresiones = {
+    id: /^\d{3,14}$/, // 3 a 14 numeros.
+    //count: /^\d{1,2}$/, //1 digito
+	
+};
+
+/*FIN EXPRESIONES*/
 
 
 async function registerEnroll() {
-let enroll = {};
-
-
-/*enroll.id = document.getElementById("id").value;
-enroll.name = document.getElementById("name").value;
-enroll.countseen = document.getElementById("lastname").value;
-enroll.idasignature = document.getElementById("years").value;
-enroll.idgroup = document.getElementById("email").value;
-enroll.idstudent = document.getElementById("phone").value;
-
-let check = 0;      
-for(let i=0; i < this.data.length; i++){ 
-    if(student.id == data[i].id){
-        check = 1;         
-        }
-}
-switch (check){
-    case 0:{
-        if( student.id != '' && student.name != '' && student.lastName  != '' && student.years != '' && student.email != '' &&   student.phone != '' &&   student.password != '' ){
-
-            if(expresiones.id.test(student.id)){
-
-                if(expresiones.nombre.test(student.name)){
-
-                     if(expresiones.nombre.test(student.lastName)){
-
-                        if(expresiones.correo.test(student.email )){
-
-                            if(expresiones.telefono.test(student.phone )){
-
-                                if (student.password == document.getElementById('password2').value) {
-                                
-                                 register(student);
-
-                                }else {
-                                    notification("error", "ACCOUNT NOT CREATED", "please check that the passwords match");
-                                }
-
-                           }else{
-                                notification("error", "Enter a valid phone", "Please verify from 7-14 digits ")
-                            }
-
-                           }else{
-                                notification("error", "Enter a valid Email", "Please verify ")
-                            }
-                    }else{
-                        notification("error", "Enter a valid Last Name", " Last Name from 4 to 40 letter name")
-                    }
-                }else{
-                    notification("error", "Enter a valid Name", " Name from 4 to 40 letter name")
-                }
-            }else{
-                notification("error", "Enter a valid Id", " Enter only numbers, with range (3-14 digits)")
-            }                 
-        }else {
-            notification("error", "INCOMPLETE FIELDS", "Please verify")
-        }
-        break;
-    }
-
-    case 1:{
-        notification("error", "ID ALREADY EXISTS", "Incomplete Registration");
-        break;
-    }
-} */
+    let enroll = {};
+    enroll.countSeen = 0;
+    enroll.idAsignature = parseInt($('#idAs').val());
+    enroll.idGroup = parseInt($('#idGro').val());
+    enroll.idStudent = IdStudent;
+         register(enroll);              
 }
 
 

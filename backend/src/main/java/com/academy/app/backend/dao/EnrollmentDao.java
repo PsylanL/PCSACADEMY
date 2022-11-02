@@ -6,7 +6,7 @@ import com.academy.app.backend.models.Enrollment;
 
 public interface EnrollmentDao {
 
-    void register(Enrollment enrollment);
+    Boolean register(Enrollment enrollment);
 
     List<Object> schedule(int id);
 
