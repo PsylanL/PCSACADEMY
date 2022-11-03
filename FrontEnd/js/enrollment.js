@@ -208,15 +208,16 @@ async function registerEnroll() {
 }
 
 
-var ModalPensum = '';
+
 //pensum
-function openModalPensum(){
+var ModalPensum = '';
+function openModalPensum(srcImgPensum){
     ModalPensum = new bootstrap.Modal(document.getElementById("modal-pensum"), {
         keyboard: false
     })
 
     img = document.querySelector("#body-modal-pensum");
-    img.innerHTML = '<img src="../img/pensum.jpg" alt="" id="img-pensum">';
+    img.innerHTML = srcImgPensum;
 
     ModalPensum.show();
 }
@@ -225,6 +226,26 @@ function closeModalPensum(){
     ModalPensum.hide();
 }
 
+async function listCourses(){
+    const getCourse = 'http://localhost:8080/api/course/list/' + IdStudent;
+    let request = await fetch(getCourse,{
+        method: 'GET',
+        headers: {
+            'authorization': localStorage.token
+        }
+    });
+    let response = await request.json();
+    let courses = response;
+    console.log(courses[0][1]);
 
+    if(courses[0][1] == 1){
+        let srcImgPensum = '<img src="../img/pensum.jpg" alt="" id="img-pensum">'
+        openModalPensum(srcImgPensum);
+    }
+    
+    
+
+   
+}
 
 //fin pensum
