@@ -2,10 +2,9 @@
     margin: 0;
 }
 
-a{
-    text-decoration: none !important;
+.link{
+    color: #fff !important;
 }
-
 .container1_txt{
     color: white;
     max-height: 88.5vh;
@@ -98,5 +97,36 @@ a{
     color: #fff;
     padding: 1vh;
     background-color: black;
+}
+
+.container3{
+    display: flex;
+    color: #fff;
+    margin-top: 5vh;
+    margin-left: 23%;   
+    margin-bottom: 5vh;
+    
+}
+
+.container3_flex{
+    border: 0.2vh solid rgb(94, 94, 94);;
+    text-align: center;
+    border-radius: 0.8vh;
+    margin-left: 5vh;
+    min-width: 30vh;
+    background-image: linear-gradient(to right bottom, #004886, #003b6c, #002e53, #00213b, #001425);
+}
+
+.container3_flex_txt{
+    margin: 0 !important;
+    color: #fff !important;
+}
+
+
+
+.img_mintransporte{
+    position: absolute;
+    left:85%;
+    top: 80vh;
 }
 
