@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/login.css">
+    <link rel="stylesheet" href="../style/style_all_notLogged.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Login</title>
+    <style>
+        .toast-error{
+            background-color: red;
+        }
+        .toast-success{
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <!--INICIO HEADER-->
+    <header>
+        <div class="container_header">
+            <div class="left">
+                <h1>PCSACADEMY</h1>
+                <div class="separator"></div>
+            </div>
+            <div class="right">
+                <a href="../view/login.html" id="link_login"><i class="fa-solid fa-user fa-2xl"></i></a>
+            </div>
+            <div class="navbar_menu">
+                <a id="link-navbar" href="./index.html"><p>Home</p></a>
+                <a id="link-navbar" href="./login.html"><p>Login</p></a>
+                <p>Team</p>
+                <p></p>
+            </div>
+        </div>
+    </header>
+    <!--FIN HEADER-->
+    <div class="container1">
+        <img class="img_header" src="../img/back_login.png" alt="">
+        <div class="container1_menu">
+            <div class="container1_menu_txt">
+                <h1>Start your driving course with the best</h1>
+            </div>
+            <div class="menu_login">
+                <h3>Login Account</h3>
+                <span>Email</span>
+                <div class="input-group mb-3">
+                    <input id="login-email" type="text" class="form-control" placeholder="Example@gmail.com"
+                        aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <span>Password</span>
+                <div class="input-group mb-3">
+                    <input id="login-pass" type="text" class="form-control" placeholder="****************"
+                        aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <button type="button" class="btn btn-secondary"
+                    onclick="openModal()">Create Account</button>
+                <button onclick="loginStudent()" type="button" class="btn btn-primary">Sign in</button>
+            </div>
+        </div>
+    </div>
+    <!--Inicio Modal -->
+    <div class="modal fade" id="modal-register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modal-register-title">Register <i class="fa-solid fa-user"></i>
+                    </h1>
+                    <button type="button" class="btn-close" onclick="closeModal()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="inputs-register">
+                        <span>Enter you ID</span>
+                        <div class="input-group flex-nowrap">
+                            <input id="id" type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+                    <div id="inputs-register">
+                        <span>Enter you NAME</span>
+                        <div class="input-group flex-nowrap">
+                            <input id="name" type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div id="inputs-register">
+                        <span>Enter you LAST NAME</span>
+                        <div class="input-group flex-nowrap">
+                            <input id="lastname" type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+
+                    <div id="inputs-register">
+                        <span>Enter you AGE</span>
+                        <div class="input-group flex-nowrap">
+                            <input id="years" type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div id="inputs-register">
+                        <span>Enter you MAIL</span>
+                        <div class="input-group flex-nowrap">
+                            <input id="email" type="mail" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div id="inputs-register">
+                        <span>Enter you PHONE</span>
+                        <div class="input-group flex-nowrap">
+                            <input id="phone" type="text" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div id="inputs-register">
+                        <span>Enter you PASSWORD</span>
+                        <div class="input-group flex-nowrap">
+                            <input id="password" type="password" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                    <div id="inputs-register">
+                        <span>Repeat your PASSWORD</span>
+                        <div class="input-group flex-nowrap">
+                            <input id="password2" type="password" class="form-control"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
+                    <button onclick="registerStudent()" type="button" class="btn btn-primary">Confirm Registration</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Modal -->
+
+    <footer>
+        <div class="footer_container">
+            <div class="footer_information">
+                <h4 id="sub_title">PCSACADEMY</h4>
+                <h5 class="footer_txt">Privacy policy</h5>
+                <h5 class="footer_txt">Terms & conditions</h5>
+                <h5 class="footer_txt">All rights reserved</h5>
+                <h5 class="footer_txt">© 2022 PCSACADEMY</h5>
+            </div>
+
+            <div class="footer_quick_links">
+                <h4 id="sub_title">Quick Links</h4>
+                <a id="link_footer" href="index.html">
+                    <h5>Home</h5>
+                </a>
+                <a id="link_footer" href="login.html">
+                    <h5>Login</h5>
+                </a>
+            </div>
+
+            <div class="footer_social">
+                <h4 id="sub_title">Follow Us</h4>
+                <a id="link_footer" href="">
+                    <h5>Twitter</h5>
+                </a>
+                <a id="link_footer" href="">
+                    <h5>Facebook</h5>
+                </a>
+            </div>
+
+
+        </div>
+    </footer>
+</body>
+
+</html>
+<script src="https://kit.fontawesome.com/13dcc31221.js" crossorigin="anonymous"></script>
+<script src="../js/login.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <script src="../js/login.js"></script>
+<script src="../js/register.js"></script>

@@ -1,84 +1,13 @@
 *{
     margin: 0;
-    font-family: 'Exo 2', sans-serif;
 }
 
-
-header{
-    position: absolute;
-    color: white;
-    z-index: 2;
-    margin-top: 3vh;
-    margin-left:5vh;
-    position: fixed;
-    transition: all 100ms ease-out;
-    
+.link{
+    color: #fff !important;
 }
-
-.separator{
-    position: absolute;
-    top:6vh;
-    min-height:0.2vh;
-    min-width: 80vh;
-    background-color: #fff;
-}
-
-header.sticky{
-    margin: 0;
-    padding-left: 5vh;
-    padding-top: 3vh;
-    padding-bottom: 4vh;
-    /*padding-right: 150vh;*/
-    background-color: rgb(0, 0, 0);
-    
-}
-
-header.sticky .separator{
-    top: 8vh;
-    min-height: 0.3vh;
-}
-
-header.sticky .navbar{
-    top: 7vh;
-}
-
-
-.navbar{
-    position: absolute;
-    top: 5vh;
-    display: flex;
-    margin-top: 1vh;
-    margin-left: 0.2vh;
-    padding-top: 1vh;
-
-}
-
-.navbar p{
-    margin-right: 3vh;
-}
-
-.navbar p:hover{
-    border-top: 0.2vh solid rgb(240, 255, 31);
-    transition: all 3ms ease;
-    cursor: pointer;
-}
-
-
-.navbar p:nth-child(2):hover{
-    border-top: 0.2vh solid rgb(59, 56, 255);
-}
-.navbar p:nth-child(3):hover{
-    border-top: 0.2vh solid rgb(247, 54, 54);
-}
-
-.container_header{
-
-}
-
 .container1_txt{
     color: white;
     max-height: 88.5vh;
-    background: linear-gradient(90deg, #000000 30%, rgba(0, 0, 0, 0) 100%);
     position: absolute;
     padding-left: 10vh;
     top: 0;
@@ -92,10 +21,112 @@ header.sticky .navbar{
 }
 
 .container1_txt_titulo{
-    width: 400px;
-    font-size: 40px;
+    width: 41.11vh;
+    font-size: 4.11vh;
     margin-bottom: 1vh;
 }
-.img_header{
-    width: 100%;
+
+.container2{
+    margin-left: 20%;
+    margin-right: 30vh;
 }
+
+.container2_title{
+    margin-top: 5vh;
+    margin-left: 43vh;
+}
+
+.container2_grid {
+
+    display: grid;
+    margin-top: 5vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "d1 d2 d3"
+    "d4 d5 d6";
+    }
+
+.d1{
+    background-image: url(../img/home_d1.jpg);
+}
+
+.d2{
+    background-image: url(../img/11_CursoMotos_ENMotocicleta.jpg);
+}
+
+.d3{
+    background-image: url(../img/home_D5.png);
+}
+
+.d4{
+    background-image: url(../img/home_d3.png);
+}
+
+.d5{
+    background-image: url(../img/home_d4.png);
+}
+
+.d6{
+    background-image: url(../img/license.png);
+}
+
+.container2_grid_areas{
+    border-radius: 1.2vh;
+    margin: 1vh;
+    margin-bottom: 2vh;
+    max-width: 35vh;
+    min-height: 35vh;
+}
+
+.grid_areas_title{
+    padding-left: 2vh;
+    text-align: center;
+    margin-top: 4vh;
+    margin-left: 7vh;
+    margin-right: 7vh;
+    
+    background-color: black;
+    color: #fff;
+}
+
+.grid_areas_txt{
+    margin: 2vh 5vh 0vh 5vh;
+    color: #fff;
+    padding: 1vh;
+    background-color: black;
+}
+
+.container3{
+    display: flex;
+    color: #fff;
+    margin-top: 5vh;
+    margin-left: 23%;   
+    margin-bottom: 5vh;
+    
+}
+
+.container3_flex{
+    border: 0.2vh solid rgb(94, 94, 94);;
+    text-align: center;
+    border-radius: 0.8vh;
+    margin-left: 5vh;
+    min-width: 30vh;
+    background-image: linear-gradient(to right bottom, #004886, #003b6c, #002e53, #00213b, #001425);
+}
+
+.container3_flex_txt{
+    margin: 0 !important;
+    color: #fff !important;
+}
+
+
+
+.img_mintransporte{
+    position: absolute;
+    left:85%;
+    top: 80vh;
+}
+
