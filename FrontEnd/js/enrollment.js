@@ -1,21 +1,25 @@
-
+var courses = '';
 var data = '';
 var IdStudent = parseInt(localStorage.id);
 
 async function listEnrollment(Id) {
-    const getSchedule = 'http://localhost:8080/api/enrollment/list/' + Id;
-    let request = await fetch(getSchedule, {
-        method: 'GET',
-        headers: {
-            'authorization': localStorage.token
-        }
-    });
-    let response = await request.json();
-    this.data = response;
-    list(this.data);
+    if (courses.length != 0) {
+        const getSchedule = 'http://localhost:8080/api/enrollment/list/' + Id;
+        let request = await fetch(getSchedule, {
+            method: 'GET',
+            headers: {
+                'authorization': localStorage.token
+            }
+        });
+        let response = await request.json();
+        this.data = response;
+        list(this.data);
+    } else {
+        notification("error", "ERROR", "You are not enrolled in any course");
+    }
 }
 
-window.onload = listEnrollment(IdStudent);
+//window.onload = listEnrollment(IdStudent);
 
 async function list(elem) {
 
@@ -67,17 +71,21 @@ window.onload = asig();
 var myModal = '';
 function openModal() {
 
-    myModal = new bootstrap.Modal(document.getElementById("modal-register"), {
-        keyboard: false
-    })
-    var selectOp = document.getElementById("idAsignature");
-    $('#idStudent').val(IdStudent);
+    if (courses.length != 0) {
+        myModal = new bootstrap.Modal(document.getElementById("modal-register"), {
+            keyboard: false
+        })
+        var selectOp = document.getElementById("idAsignature");
+        $('#idStudent').val(IdStudent);
 
-    for (let i = 0; i < optionsS.length; i++) {
-        selectOp.options[i + 1] = new Option(optionsS[i].name, 'value =' + i);
+        for (let i = 0; i < optionsS.length; i++) {
+            selectOp.options[i + 1] = new Option(optionsS[i].name, 'value =' + i);
+        }
+
+        myModal.show();
+    } else {
+        notification("error", "ERROR", "You are not enrolled in any course");
     }
-
-    myModal.show();
 }
 
 
@@ -235,8 +243,20 @@ async function listCourses() {
         }
     });
     let response = await request.json();
-    let courses = response;
+    courses = response;
+    if (courses.length == 0) {
+        notification("error", "ERROR", "You are not enrolled in any course");
+    } else {
+        listEnrollment(IdStudent);
+    }
     //console.log(response)
+
+
+}
+
+window.onload = listCourses();
+
+function showPensum() {
     if (courses.length != 0) {
         //console.log(courses[0][1]);
         let srcImgPensum = '';
@@ -251,10 +271,6 @@ async function listCourses() {
     else {
         notification("error", "ERROR", "You are not enrolled in any course");
     }
-
-
-
-
 }
 
 //fin pensum

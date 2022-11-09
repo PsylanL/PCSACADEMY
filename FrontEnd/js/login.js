@@ -22,7 +22,7 @@ async function loginStudent () {
         let credentials = response.split(',');
         localStorage.token = credentials[0];
         localStorage.id = credentials[1];
-        window.location.href = "index.html";
+        window.location.href = "courses_home.html";
     }
 }
 

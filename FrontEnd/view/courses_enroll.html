@@ -27,8 +27,8 @@
 <body>
     <header>
         <div class="container_header">
-                <h1 class="container_header_title">PCSACADEMY</h1>
-                <h3 class="container_header_subtitle">Students Hub</h1>
+                <h1 class="container_header_title" id="titles">PCSACADEMY</h1>
+                <h3 class="container_header_subtitle" id="sub_titles">Students Hub</h1>
                 <div class="separator"></div>
         </div>
     </header>
@@ -44,7 +44,7 @@
     <div class="main-container">
         <div class="container" id="table_container">
             <button id="btn-agg-enrollment" onclick="openModal()" class="btn btn-primary">Enroll  <i class="fa-solid fa-book"></i></button>
-            <button id="btn-pensum" onclick="listCourses()" class="btn btn-primary">Pensum  <i class="fa-solid fa-layer-group"></i></button>
+            <button id="btn-pensum" onclick="showPensum()" class="btn btn-primary">Pensum  <i class="fa-solid fa-layer-group"></i></button>
             <table id="enrollment" class="table table-bordered"><br><br><br>
                 <thead>
                     <tr>
@@ -127,7 +127,7 @@
             </div>
         </div>
     </div>
-    <script src="global.js"></script>
+    <script src="../js/global.js"></script>
 </body>
 </html>
 

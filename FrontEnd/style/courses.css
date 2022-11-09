@@ -4,6 +4,17 @@
     font-family: 'Exo 2', sans-serif;
 }
 
+#titles{
+    font-family: 'Exo 2', sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+}
+#sub_titles{
+    font-family: 'Exo 2', sans-serif;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
 ol{
     padding: 0;
 }
@@ -44,7 +55,6 @@ a{
     height: 100%;
     color: rgb(0, 0, 0);
     background-color: rgb(249, 250, 251);
-    z-index: -1;
 }
 
 .sidebar_list{
