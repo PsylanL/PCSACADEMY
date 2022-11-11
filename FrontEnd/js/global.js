@@ -12,5 +12,11 @@ async function getStudent(id) {
 }
 
 function imprimirNombre (user) {
-    console.log(user.name);
+    document.getElementById('simpleDropdown').innerHTML = user.name;
+}
+
+function signOut () {
+    localStorage.id = null;
+    localStorage.token = null;
+    window.location.replace('index.html');
 }

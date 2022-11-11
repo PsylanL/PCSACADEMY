@@ -15,6 +15,16 @@
     font-size: 1.4em;
 }
 
+.contenedor-cards{
+    margin-left: 40%;
+    display: flex;
+}
+
+.card{
+    margin-top: 5%;
+    margin-left: 2%;
+}
+
 ol{
     padding: 0;
 }

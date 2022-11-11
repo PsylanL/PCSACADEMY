@@ -258,12 +258,12 @@ window.onload = listCourses();
 
 function showPensum() {
     if (courses.length != 0) {
-        //console.log(courses[0][1]);
+        console.log(courses);
         let srcImgPensum = '';
-        if (courses[0][1] == 1) {
+        if (courses[0][2] == 1) {
             srcImgPensum = '<img src="../img/pensum-motos-A2.jpg" alt="" id="img-pensum">';
             openModalPensum(srcImgPensum);
-        } else if (courses[0][1] == 2) {
+        } else if (courses[0][2] == 2) {
             srcImgPensum = '<img src="../img/pensum-automoviles-B1.jpg" alt="" id="img-pensum">';
             openModalPensum(srcImgPensum);
         }

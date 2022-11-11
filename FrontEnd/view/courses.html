@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,20 +8,32 @@
     <link rel="stylesheet" href="../style/courses.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <div class="container_header">
-                <h1 class="container_header_title">PCSACADEMY</h1>
-                <h3 class="container_header_subtitle">Students Hub</h1>
+            <h1 class="container_header_title">PCSACADEMY</h1>
+            <h3 class="container_header_subtitle">Students Hub</h1>
+                <div class="dropdown container">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" id="simpleDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a onclick="signOut()" class="dropdown-item">Sign out</a></li>
+                        <li><a href="#" class="dropdown-item">My courses</a></li>
+                        <li><a href="#" class="dropdown-item">Enroll Asignature</a></li>
+                    </ul>
+                </div>
                 <div class="separator"></div>
         </div>
     </header>
     <div class="sidebar">
         <ul class="sidebar_list">
-            <li class="sidebar_list_item active"><a href="../view/index.html">Home</a></li>
+            <li class="sidebar_list_item active"><a href="../view/courses_home.html">Home</a></li>
             <li class="sidebar_list_item">Enrollment</li>
             <li class="sidebar_list_item">Schedule</li>
             <li class="sidebar_list_item">Option 5</li>
@@ -29,4 +42,5 @@
     </div>
     <script src="global.js"></script>
 </body>
+
 </html>

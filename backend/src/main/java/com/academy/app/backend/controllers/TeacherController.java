@@ -36,7 +36,4 @@ public class TeacherController {
     public List<Teacher> list(){
         return teacherDao.list();
     }
-
-	
-
 }
