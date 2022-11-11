@@ -11,5 +11,7 @@ public interface TeacherDao {
 	List<Teacher> list();
 
     Teacher getUserByCredentials(Teacher teacher);
+
+    List<Teacher> search(int id);
     
 }

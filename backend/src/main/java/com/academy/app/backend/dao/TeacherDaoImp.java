@@ -50,4 +50,11 @@ public class TeacherDaoImp implements TeacherDao {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Teacher> search(int id) {
+		String query = "from Teacher where id = " + id;
+		return entityManager.createQuery(query).getResultList();
+	}
+
 }
