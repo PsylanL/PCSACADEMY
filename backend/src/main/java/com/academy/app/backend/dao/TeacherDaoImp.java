@@ -5,6 +5,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
+
+import com.academy.app.backend.models.ClassGroup;
 import com.academy.app.backend.models.Teacher;
 
 import de.mkammerer.argon2.Argon2;
@@ -54,6 +56,13 @@ public class TeacherDaoImp implements TeacherDao {
 	@Override
 	public List<Teacher> search(int id) {
 		String query = "from Teacher where id = " + id;
+		return entityManager.createQuery(query).getResultList();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ClassGroup> getClassGroups(int id) {
+		String query = "from ClassGroup where idteacher = " + id;
 		return entityManager.createQuery(query).getResultList();
 	}
 

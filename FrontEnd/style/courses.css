@@ -15,12 +15,20 @@
     font-size: 1.4em;
 }
 
+.tittle{
+    position: absolute;
+    margin-top: 1%;
+}
+
 .contenedor-cards{
-    margin-left: 40%;
+    position: relative;
+    margin-left: 7%;
     display: flex;
+    justify-content: center;
 }
 
 .card{
+    display: grid;
     margin-top: 5%;
     margin-left: 2%;
 }
@@ -90,4 +98,8 @@ a{
     width: 100%;
     left: 0vh;
     padding: 0;
+}
+
+.btn-card {
+    width: 100%;
 }

@@ -21,4 +21,9 @@ public class ClassGroupController {
     public List<ClassGroup> listar(@PathVariable int id) {
         return classGroupDao.listSearch(id);
     }
+
+    @GetMapping("/getasignature/{id}")
+    public String getAsignature (@PathVariable int id) {
+        return classGroupDao.getAsignature (id);
+    }
 }

@@ -1,5 +1,6 @@
 package com.academy.app.backend.controllers;
 
+import java.nio.file.Path;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.academy.app.backend.models.ClassGroup;
 import com.academy.app.backend.models.Teacher;
 
 import de.mkammerer.argon2.Argon2;
@@ -41,5 +44,10 @@ public class TeacherController {
     @GetMapping("/search/{id}")
     public List<Teacher> search (@PathVariable int id){
         return teacherDao.search(id);
+    }
+
+    @GetMapping("/classgroup/{id}")
+    public List<ClassGroup> getClassGroups (@PathVariable int id){
+        return teacherDao.getClassGroups(id);
     }
 }

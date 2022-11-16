@@ -7,4 +7,6 @@ public interface ClassGroupDao {
 
     List<ClassGroup> listSearch(int id);
 
+    String getAsignature(int id);
+
 }

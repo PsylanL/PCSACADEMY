@@ -22,4 +22,10 @@ public class ClassGroupDaoImp implements ClassGroupDao {
         return entityManager.createQuery(query).getResultList();
     }
 
+    @Override
+    public String getAsignature(int id) {
+        String query = "SELECT name FROM classgroup INNER JOIN asignature on asignature.id = classgroup.idasignature where classgroup.id = " + id;
+        return (String) entityManager.createNativeQuery(query).getSingleResult();
+    }
+
 }

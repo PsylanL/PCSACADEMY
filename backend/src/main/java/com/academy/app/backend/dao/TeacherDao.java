@@ -2,6 +2,7 @@ package com.academy.app.backend.dao;
 
 import java.util.List;
 
+import com.academy.app.backend.models.ClassGroup;
 import com.academy.app.backend.models.Teacher;
 
 public interface TeacherDao {
@@ -13,5 +14,7 @@ public interface TeacherDao {
     Teacher getUserByCredentials(Teacher teacher);
 
     List<Teacher> search(int id);
+
+    List<ClassGroup> getClassGroups(int id);
     
 }
