@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.academy.app.backend.models.ClassGroup;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 
 @Transactional
 @Repository
@@ -28,4 +29,12 @@ public class ClassGroupDaoImp implements ClassGroupDao {
         return (String) entityManager.createNativeQuery(query).getSingleResult();
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Object> getStudents(int id) {
+        String query =  "SELECT s.id, s.name " +
+                        "FROM enrollment e INNER join student s on s.id = e.idstudent INNER join classgroup c on c.id = e.idgroup " +
+                        "where c.id = " + id;
+        return entityManager.createNativeQuery(query).getResultList();
+    }
 }

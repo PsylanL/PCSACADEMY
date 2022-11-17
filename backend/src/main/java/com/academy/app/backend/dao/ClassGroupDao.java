@@ -9,4 +9,6 @@ public interface ClassGroupDao {
 
     String getAsignature(int id);
 
+    List<Object> getStudents(int id);
+
 }

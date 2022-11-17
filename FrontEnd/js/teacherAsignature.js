@@ -19,14 +19,7 @@ async function classgroup (id) {
 window.onload = classgroup(localStorage.id);
 
 function cards (list) {
-    console.log (list)
-    
-    const div2 = document.createElement('div');
-
-    
-
     list.forEach(element => {
-        console.log(element);
 
         let cardImg = document.createElement('div');
         cardImg.innerHTML =  '<img src="'+element.img+'" class="card-img-top" alt="...">' ;
@@ -58,7 +51,6 @@ function cards (list) {
         div.className = 'card';
         div.style="width: 18rem;";
         div.id="card-parent";
-        console.log(div);
         
         let parent = document.getElementById('contenedor-cards');
         parent.appendChild(div);
@@ -66,10 +58,58 @@ function cards (list) {
     
 }
 
-function updateDescription(id) {
-    console.log ('voy a modificar la descripcion de:' + id)
+async function updateDescription(id) {
+    console.log ('voy a modificar la descripcion de:' + id);
+    
 }
 
-function functionToList (id) {
-    console.log('mostrar lista de: ' + id)
+async function functionToList (id) {
+    openModalList();
+    console.log ('voy a listar a:' + id)
+    var students = {};
+
+    const getStudents = "http://localhost:8080/api/classgroup/getStudents/" + id;
+    let request = await fetch (getStudents);
+    let respose = await request.json();
+    students = respose;
+    console.log(students);
+
+    let StudentsTable = document.getElementById('tableStudents');
+    let tableBody = document.getElementById('tbody');
+
+    for(element of students) {
+        let row = document.createElement('tr');
+        row.className = 'table-light'
+        let td = document.createElement('td');
+
+        td = document.createElement('td');
+        td.innerText = element[0];
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerText = element[1];
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerHTML = '<div class="size"><button class="fa-solid fa-paper-plane btn btn-outline-primary btn-sm" onclick="deleteClient(' + element.id +')" id="btnDelete"></button></div>';
+        row.appendChild(td);
+
+        tableBody.appendChild(row);
+    }
+    StudentsTable.appendChild(tableBody);
+}
+
+var ModalEnroll = '';
+function openModalList() {
+    ModalEnroll = new bootstrap.Modal(document.getElementById("modalList"), {
+        keyboard: false
+    })
+
+    ModalEnroll.show();
+}
+
+function closeModalList() {
+    tableBody = document.getElementById('tbody');
+    tableBody.innerHTML = '';
+    ModalEnroll.hide();
 }

@@ -7,10 +7,10 @@ async function getTeacher(id) {
     let request = await fetch(getTeacher);
     let response = await request.json();
     this.teacher = response[0];
-    imprimirNombre(teacher);
+    printName(teacher);
 }
 
-function imprimirNombre (user) {
+function printName (user) {
     document.getElementById('simpleDropdown').innerHTML = user.name;
 }
 
