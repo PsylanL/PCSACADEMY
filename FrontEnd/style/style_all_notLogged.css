@@ -156,13 +156,13 @@ header.sticky .navbar_menu{
     color: rgba(0, 0, 0, 0.87);
 }
 
-.link_footer{
+#link_footer{
     text-decoration: none;
     color: rgb(94, 94, 94) !important;
     transition: all 100ms ease-out;
 }
 
-.link_footer:hover{
+#link_footer:hover{
     color: #fff !important;
 }
 

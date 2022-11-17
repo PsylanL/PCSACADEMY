@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.academy.app.backend.dao.EnrollmentCourseDao;
-import com.academy.app.backend.models.EnrollmentCourse;
 import com.academy.app.backend.utils.JWTUtil;
 
 @RestController

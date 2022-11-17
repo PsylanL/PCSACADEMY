@@ -21,4 +21,19 @@ public class ClassGroupController {
     public List<ClassGroup> listar(@PathVariable int id) {
         return classGroupDao.listSearch(id);
     }
+
+    @GetMapping("/getasignature/{id}")
+    public String getAsignature (@PathVariable int id) {
+        return classGroupDao.getAsignature (id);
+    }
+
+    @GetMapping("/listTeachersWithAsignatures")
+    public List<Object> listT () {
+        return classGroupDao.listTeachersWithAsignatures();
+    }
+
+    @GetMapping("/getStudents/{id}")
+    public List<Object> getStudents (@PathVariable int id){
+        return classGroupDao.getStudents(id);
+    }
 }

@@ -5,7 +5,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
-import com.academy.app.backend.models.EnrollmentCourse;
 
 
 @Transactional
@@ -21,6 +20,5 @@ public class EnrollmentCourseDaoImp implements EnrollmentCourseDao{
 		String sqlQuery = "select * from EnrollmentCourse Where idstudent =" + id;
 		return entityManager.createNativeQuery(sqlQuery).getResultList();
 	}
-
     
 }

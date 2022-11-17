@@ -5,10 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-import org.hibernate.internal.util.type.PrimitiveWrapperHelper.BooleanDescriptor;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
 import com.academy.app.backend.models.Enrollment;
 
 @Transactional
@@ -38,6 +35,7 @@ public class EnrollmentDaoImp implements EnrollmentDao {
         return entityManager.createNativeQuery(sqlQuery).getResultList();
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public Boolean register(Enrollment enrollment) {
         String query = "select countseen from Enrollment where idAsignature= " + enrollment.getIdAsignature()

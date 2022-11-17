@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.core.sym.Name;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -30,4 +32,12 @@ public class ClassGroup {
     @Column(name = "schedule", nullable = false, length = 100)
     @Getter @Setter
     private String schedule;
+
+    @Column(name = "description", nullable = true, length = 250)
+    @Getter @Setter
+    private String description;
+
+    @Column(name = "img", nullable = true, length = 250)
+    @Getter @Setter
+    private String img;
 }

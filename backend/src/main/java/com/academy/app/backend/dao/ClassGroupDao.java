@@ -7,4 +7,10 @@ public interface ClassGroupDao {
 
     List<ClassGroup> listSearch(int id);
 
+    String getAsignature(int id);
+
+    List<Object> listTeachersWithAsignatures();
+
+    List<Object> getStudents(int id);
+
 }

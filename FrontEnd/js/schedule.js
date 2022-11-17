@@ -60,7 +60,7 @@ $(document).ready(function () {
     
   $('#btn-schedule').click(function(){
       
-    $('#schedule_table').printThis();
+    $.print('#schedule_table');
 
 });
 });
