@@ -29,6 +29,21 @@ public class ClassGroupDaoImp implements ClassGroupDao {
         return (String) entityManager.createNativeQuery(query).getSingleResult();
     }
 
+    
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Object> listTeachersWithAsignatures() {
+        String sqlQuery = "select t.id, t.name, t.lastname, t.email, t.phone, a.name as asignatureName, c.schedule " + 
+		"from ClassGroup c inner join Teacher t on c.idteacher = t.id " + 
+		"inner join Asignature a on c.idasignature = a.id " +
+		"where c.idteacher = t.id ";
+
+        
+		return entityManager.createNativeQuery(sqlQuery).getResultList();
+    }
+
+
     @SuppressWarnings("unchecked")
     @Override
     public List<Object> getStudents(int id) {

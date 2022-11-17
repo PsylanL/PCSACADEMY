@@ -27,6 +27,11 @@ public class ClassGroupController {
         return classGroupDao.getAsignature (id);
     }
 
+    @GetMapping("/listTeachersWithAsignatures")
+    public List<Object> listT () {
+        return classGroupDao.listTeachersWithAsignatures();
+    }
+
     @GetMapping("/getStudents/{id}")
     public List<Object> getStudents (@PathVariable int id){
         return classGroupDao.getStudents(id);

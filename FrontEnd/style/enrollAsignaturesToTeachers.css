@@ -1,0 +1,38 @@
+
+.container1{
+    display: flex;
+    width: 100%;
+}
+
+#sub_titles{
+    margin-left: 48.5%;
+}
+
+#sub_list_of_class_groups{
+    margin-left: 43%;
+}
+
+
+/* TABLA PROFESORES */
+
+#enrollAsignaturesTeachers{
+    margin-left: 20%;
+}
+
+#th_title{
+    text-align: center;
+}
+
+.cont_table_teachers{
+    margin-top: 2vh;
+    width: 100%;
+}
+
+#teachers{
+   width: max-content;
+   margin: auto;
+   margin-top: 2%;
+}
+
+
+/* END TABLE TEACHERS */

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/courses.css">
+    <link rel="stylesheet" href="../style/enrollAsignaturesToTeachers.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Teacher's hub</title>
+</head>
+
+<body>
+    <header>
+        <div class="container_header">
+            <h1 class="container_header_title" id="titles">PCSACADEMY</h1>
+            <h3 class="container_header_subtitle" id="sub_titles">Admin Hub</h1>
+                <div class="dropdown container">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" id="simpleDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="signOut()" class="dropdown-item">Sign out</a></li>
+                    </ul>
+                </div>
+                <div class="separator"></div>
+        </div>
+    </header>
+    <div class="sidebar">
+        <ul class="sidebar_list">
+            <li class="sidebar_list_item "><a href="../view/adminHome.html">Home</a></li>
+            <li class="sidebar_list_item active"><a href="../view/enrollAsignaturesToTeachers.html">enroll asignatures to teachers</a></li>
+        </ul>
+    </div>
+
+    <div class="container1" id="">
+        <div class="cont_table_teachers">
+            <button type="button" class="btn btn-primary" id="enrollAsignaturesTeachers" onclick="openModalEnroll()">
+            Enroll Asignatures to Teachers</button>
+            <h2 id="sub_list_of_class_groups">List of Class Groups</h2>
+            <table id="teachers" class="table table-bordered">
+                <thead>
+                        <th colspan="5" id="th_titles">TEACHERS INFORMATION</th>
+                        <th colspan="2" id="th_titles">GROUP INFORMATION</th>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME </th>
+                        <th>LASTNAME</th>
+                        <th>EMAIL</th>
+                        <th>PHONE</th>
+                        <th>ASIGNATURE</th>
+                        <th>SCHEDULE</th>
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+
+        </div>
+        
+    </div>
+    
+
+         <!--Inicio Modal Enroll-->
+         <div class="modal fade" id="modal_enroll_asig_teachers" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="modal-register-title">Enroll <i class="fa-solid fa-book"></i>
+                        </h1>
+                        <button type="button" class="btn-close" onclick="closeModalEnroll()" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div id="inputs-register">
+                        <span>Teacher | Name</span>
+                        <span id="nameAsig"></span>
+                        <div class="input-group flex-nowrap">
+                            <select class="form-select form-select-sm" name="asignature" id="idAsignature" onchange="selectChange()">
+                              <option value="0">Seleccione</option>
+      
+                            </select>
+                            <input id="idAs" type="number" class="form-control"
+                            aria-describedby="addon-wrapping" readonly> 
+                            
+                        </div>
+                    </div>
+      
+                        <div id="inputs-register">
+                            <span> Group | Id Group</span>
+                            <div class="input-group flex-nowrap">
+                              <select class="form-select" name="group" id="idGroup" onchange="selectChangeGroup()">
+                                 <option value="0">Seleccione</option>
+                              </select>
+                              <input id="idGro" type="number" class="form-control"
+                            aria-describedby="addon-wrapping" readonly> 
+                            </div>
+                        </div>      
+                        
+                        <div id="inputs-register">
+                          <span>ID  Student</span>
+                          <div class="input-group flex-nowrap">
+                            <input id="idStudent" type="text" class="form-control"
+                            aria-describedby="addon-wrapping" readonly> 
+                         </div>
+                      </div>
+           
+                    </div>
+      
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="closeModalEnroll()">Close</button>
+                        <button onclick="registerEnroll()" type="button" class="btn btn-primary">Confirm Registration</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fin Modal -->
+    <!-- JavaScript Bundle with Popper -->
+    <script src="../js/courses.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>

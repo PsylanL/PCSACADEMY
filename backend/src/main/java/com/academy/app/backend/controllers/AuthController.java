@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.academy.app.backend.dao.AdminDao;
 import com.academy.app.backend.dao.StudentDao;
 import com.academy.app.backend.dao.TeacherDao;
+import com.academy.app.backend.models.Admin;
 import com.academy.app.backend.models.Student;
 import com.academy.app.backend.models.Teacher;
 import com.academy.app.backend.utils.JWTUtil;
@@ -21,6 +23,9 @@ public class AuthController {
 
     @Autowired
     private TeacherDao teacherDao;
+
+    @Autowired
+    private AdminDao adminDao;
 
     @Autowired
     private JWTUtil jwtUtil;
@@ -39,6 +44,15 @@ public class AuthController {
         Teacher teacherVerified = teacherDao.getUserByCredentials(teacher);
         if (teacherVerified != null){
             return jwtUtil.create(String.valueOf(teacherVerified.getId()), teacherVerified.getEmail()) + ',' + teacherVerified.getId();
+        }
+        return "fail";
+    }
+
+    @PostMapping("/loginadmin")
+    public String loginAdmin (@RequestBody Admin admin){
+        Admin adminVerified =  adminDao.getUserByCredentials(admin);
+        if (adminVerified != null){
+            return jwtUtil.create(String.valueOf(adminVerified.getId()), adminVerified.getEmail()) + ',' + adminVerified.getId();
         }
         return "fail";
     }

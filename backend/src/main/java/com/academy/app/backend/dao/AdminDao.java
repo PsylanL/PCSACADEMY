@@ -10,5 +10,11 @@ public interface AdminDao {
 	
 	List<Admin> list();
 
+	Admin getUserByCredentials(Admin admin);
+
+	List<Admin> search(int id);
+
+	
+
     
 }
