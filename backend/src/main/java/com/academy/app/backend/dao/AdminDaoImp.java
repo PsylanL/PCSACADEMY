@@ -11,6 +11,8 @@ import com.academy.app.backend.models.Admin;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 
+@Transactional
+@Repository
 public class AdminDaoImp implements AdminDao {
     //Variable para ejecutar consultas en la base de datos
     @PersistenceContext
@@ -20,7 +22,7 @@ public class AdminDaoImp implements AdminDao {
     @SuppressWarnings("unchecked")
 	@Override
 	public List<Admin> list() {
-		String query = "from Teacher";
+		String query = "From Admin";
 		return entityManager.createQuery(query).getResultList();
 	}
 
@@ -29,4 +31,32 @@ public class AdminDaoImp implements AdminDao {
         // TODO Auto-generated method stub
         
     }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public Admin getUserByCredentials(Admin admin) {
+        String query = "From Admin Where email = :email";
+		List<Admin> lista = entityManager.createQuery(query)
+				.setParameter("email", admin.getEmail())
+				.getResultList();
+		if (lista.isEmpty()) {
+			return null;
+		}
+
+		Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+		if (argon2.verify(lista.get(0).getPassword(), admin.getPassword())) {
+			return lista.get(0);
+		}
+		//Admin v = lista.get(0);
+		return null;
+    }
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Admin> search(int id) {
+		String query = "from Admin where id = " + id;
+		return entityManager.createQuery(query).getResultList();
+	
+	}
+
 }
