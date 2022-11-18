@@ -103,3 +103,21 @@ a{
 .btn-card {
     width: 100%;
 }
+
+#enrollAsignaturesTeachers{
+    margin-left: 20%;
+}
+
+
+#simpleDropdown{
+    margin-left: 95%;
+}
+
+#dropdown_container{
+    margin-right: 0 !important;
+    width: 100%;
+}
+
+#table_container{
+    margin-top: 2rem;
+}
