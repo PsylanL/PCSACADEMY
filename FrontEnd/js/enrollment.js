@@ -192,7 +192,7 @@ async function register(enrollU) {
     }
 
     );
-    setTimeout(function () { window.location.href = 'enrollment.html'; }, 1100);
+    setTimeout(function () { window.location.href = 'courses_enroll.html'; }, 1100);
 }
 
 /*EXPRESIONES*/
@@ -260,10 +260,11 @@ function showPensum() {
     if (courses.length != 0) {
         console.log(courses);
         let srcImgPensum = '';
-        if (courses[0][2] == 1) {
+        if (courses[0][1] == 1) {
+            console.log("hola");
             srcImgPensum = '<img src="../img/pensum-motos-A2.jpg" alt="" id="img-pensum">';
             openModalPensum(srcImgPensum);
-        } else if (courses[0][2] == 2) {
+        } else if (courses[0][1] == 2) {
             srcImgPensum = '<img src="../img/pensum-automoviles-B1.jpg" alt="" id="img-pensum">';
             openModalPensum(srcImgPensum);
         }

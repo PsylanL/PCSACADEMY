@@ -51,7 +51,7 @@ function list(elem) {
 
     for (element of elem) {
 
-        
+
 
         // for(element2 of idTeacher){
         //     console.log(element2);
@@ -107,47 +107,47 @@ function list(elem) {
 
         // flag = true;
 
-        
-            let row = document.createElement('tr');
-            let td = document.createElement('td');
+
+        let row = document.createElement('tr');
+        let td = document.createElement('td');
 
 
 
-            td = document.createElement('td');
-            td.innerText = element[0];
-            row.appendChild(td);
+        td = document.createElement('td');
+        td.innerText = element[0];
+        row.appendChild(td);
 
-            td = document.createElement('td');
-            td.innerText = element[1];
-            row.appendChild(td);
+        td = document.createElement('td');
+        td.innerText = element[1];
+        row.appendChild(td);
 
-            td = document.createElement('td');
-            td.innerText = element[2];
-            row.appendChild(td);
+        td = document.createElement('td');
+        td.innerText = element[2];
+        row.appendChild(td);
 
-            td = document.createElement('td');
-            td.innerText = element[3];
-            row.appendChild(td);
+        td = document.createElement('td');
+        td.innerText = element[3];
+        row.appendChild(td);
 
-            td = document.createElement('td');
-            td.innerText = element[4];
-            row.appendChild(td);
+        td = document.createElement('td');
+        td.innerText = element[4];
+        row.appendChild(td);
 
-            td = document.createElement('td');
-            td.innerText = element[5];
-            row.appendChild(td);
+        td = document.createElement('td');
+        td.innerText = element[5];
+        row.appendChild(td);
 
-            td = document.createElement('td');
-            td.innerText = element[6];
-            row.appendChild(td);
+        td = document.createElement('td');
+        td.innerText = element[6];
+        row.appendChild(td);
 
 
 
-            tableBody.appendChild(row);
+        tableBody.appendChild(row);
 
-            teachersTable.appendChild(tableBody);
+        teachersTable.appendChild(tableBody);
 
-            elem = '';
+        elem = '';
 
     }
 
@@ -164,6 +164,7 @@ function openModalEnroll() {
     listAsignatures();
     document.getElementById("selected_name_teacher").value = "emty";
     document.getElementById("selected_asignature").value = "emty";
+    document.getElementById("selected_asignature_id").value = "emty";
 }
 
 function closeModalEnroll() {
@@ -186,9 +187,9 @@ async function listTeachers() {
 
     var selectOp = document.getElementById("nameTeacher");
 
-    for(let i = 0; i < teacherOptions.length; i++){
-        selectOp.options[i+1] = new Option(teacherOptions[i].name + " " + 
-        teacherOptions[i].lastName, "value = " + i);
+    for (let i = 0; i < teacherOptions.length; i++) {
+        selectOp.options[i + 1] = new Option(teacherOptions[i].name + " " +
+            teacherOptions[i].lastName, "value = " + i);
     }
 
 }
@@ -202,15 +203,15 @@ async function listAsignatures() {
 
     var selectOp = document.getElementById("nameAsignature");
 
-    for(let i = 0; i < AsignaturesOptions.length; i++){
-        selectOp.options[i+1] = new Option(AsignaturesOptions[i].name, "value = " + i);
+    for (let i = 0; i < AsignaturesOptions.length; i++) {
+        selectOp.options[i + 1] = new Option(AsignaturesOptions[i].name, "value = " + i);
     }
 
 }
 
 async function selectChange() {
 
-    
+
 
     var valSelect = document.getElementById('nameTeacher');
     var selected = valSelect.options[valSelect.selectedIndex].text;
@@ -228,7 +229,7 @@ async function selectChange() {
 
 
     }
-    
+
 
 
 }
@@ -242,21 +243,67 @@ async function selectChangeAsignature() {
     for (let as of AsignaturesOptions) {
         if (selected == as.name) {
             console.log(as);
-            if(as.course == 1){
+            if (as.course == 1) {
                 document.getElementById("selected_asignature").value = "Motorcycle course A2";
-            } else if(course == 2){
-                
+            } else if (as.course == 2) {
+                document.getElementById("selected_asignature").value = "Automobiles course B1";
+
             }
-            
+            document.getElementById("selected_asignature_id").value = as.id;
             ban = 1;
         }
     }
     if (ban == 0) {
         document.getElementById("selected_asignature").value = "empty";
-        
+
 
     }
-    
+
 
 
 }
+
+
+async function registerEnroll() {
+    let enroll = {};
+    enroll.id = document.getElementById("selected_id_course").value;
+    enroll.idAsignature = document.getElementById("selected_asignature_id").value;
+    enroll.idTeacher = document.getElementById("selected_name_teacher").value;
+    enroll.schedule = document.getElementById("selected_asignature_schedule").value;
+    enroll.description = document.getElementById("selected_description_course").value;
+
+
+
+    if ( enroll.id != '' &&  enroll.idAsignature != 'empty' && enroll.idTeacher != 'empty' &&
+        enroll.schedule != '' && enroll.description != '') {
+        console.log(enroll);
+        const request = await fetch('http://localhost:8080/api/classgroup/register', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+
+            },
+            body: JSON.stringify(enroll)
+        });
+        const response = await request.text();
+        if (response != 'fail') {
+            notification("success", "SUCCESSFUL", "Registration complete!!");
+            setTimeout(function(){ window.location.href = 'enrollAsignaturesToTeachers.html';}, 1000);
+        }
+
+    } else {
+        notification("error", "Error", "Please enter all fields!!");
+    }
+
+
+}
+
+
+// Notification
+function notification(type, title, msg) {
+
+    toastr[type](msg, title);
+}
+
+// End Notification
