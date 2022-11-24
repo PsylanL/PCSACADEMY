@@ -52,4 +52,9 @@ public class ClassGroupDaoImp implements ClassGroupDao {
                         "where c.id = " + id;
         return entityManager.createNativeQuery(query).getResultList();
     }
+
+    @Override
+    public void register(ClassGroup classGroup) {
+        entityManager.persist(classGroup);
+    }
 }

@@ -13,4 +13,6 @@ public interface ClassGroupDao {
 
     List<Object> getStudents(int id);
 
+    void register(ClassGroup classGroup);
+
 }
