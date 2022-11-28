@@ -1,6 +1,5 @@
 package com.academy.app.backend.controllers;
 
-import java.nio.file.Path;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -32,20 +32,12 @@ public class AdminDaoImp implements AdminDao {
         
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public Admin getUserByCredentials(Admin admin) {
-        String query = "From Admin Where email = :email";
-		List<Admin> lista = entityManager.createQuery(query)
-				.setParameter("email", admin.getEmail())
-				.getResultList();
-		if (lista.isEmpty()) {
-			return null;
-		}
+    public Admin getUserByCredentials(Admin admin, String password) {
 
 		Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
-		if (argon2.verify(lista.get(0).getPassword(), admin.getPassword())) {
-			return lista.get(0);
+		if (argon2.verify(admin.getPassword(), password)) {
+			return admin;
 		}
 		//Admin v = lista.get(0);
 		return null;
@@ -57,6 +49,17 @@ public class AdminDaoImp implements AdminDao {
 		String query = "from Admin where id = " + id;
 		return entityManager.createQuery(query).getResultList();
 	
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Admin validate(String email) {
+		String query = "from Admin where email = '" + email + "'";
+		List<Admin> admins = entityManager.createQuery(query).getResultList();
+		if (admins.size() == 0){
+			return null;
+		}
+		return admins.get(0);
 	}
 
 }

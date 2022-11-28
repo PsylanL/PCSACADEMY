@@ -11,10 +11,12 @@ public interface TeacherDao {
 	
 	List<Teacher> list();
 
-    Teacher getUserByCredentials(Teacher teacher);
+    Teacher getUserByCredentials(Teacher teacher, String password);
 
     List<Teacher> search(int id);
 
     List<ClassGroup> getClassGroups(int id);
+
+    Teacher validate(String email);
     
 }

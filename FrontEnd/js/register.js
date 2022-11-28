@@ -43,9 +43,14 @@ async function register(student){
             body: JSON.stringify(student)
             
         }).then((response) => {
-            if (response.status != 200) {
-                alert('error');
-            } else {
+                if(response.status!= 200){
+                    if(response.status == 208){
+                        notification("error", "Email already exists");
+                    } else {
+                        notification("error", "Error creating student");
+                    }
+                }
+                else {
                     notification("success", "ACCOUNT CREATED", "Successfully registered");
                     setTimeout(function () { closeModal() }, 1000);
 
@@ -53,14 +58,15 @@ async function register(student){
                         method: 'POST',
                         headers: {
                             'Accept': 'application/json',
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json' 
                         },
                         body: JSON.stringify(student)
                     });
+                }
                     //id aplication azure: ea48d346-d56d-4bfc-8e0d-e62677de92ca
                     //client secret: 1ya8Q~ITFVeKif4qdeLUGmHZRgeIDbBsb4tK8bNC
                 
-            }
+            
         });
     } 
 

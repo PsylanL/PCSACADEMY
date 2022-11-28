@@ -6,13 +6,15 @@ import com.academy.app.backend.models.Student;
 
 public interface StudentDao {
     
-void register(Student student);
+    String register(Student student);
 	
 	List<Student> list();
 
-    Student getUserByCredentials(Student student);
+    Student getUserByCredentials(Student student, String password);
 
     List<Student> search(int id);
 
     void confirmRegister(Student student);
+
+    Student validate(String email);
 }
