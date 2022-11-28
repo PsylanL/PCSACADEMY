@@ -58,7 +58,8 @@
 }
 
 .d3{
-    background-image: url(../img/home_D5.png);
+    background-position: bottom;
+    background-image: url(../img/disc2.png)
 }
 
 .d4{
@@ -70,7 +71,7 @@
 }
 
 .d6{
-    background-image: url(../img/license.png);
+    background-image: url(../img/secure.jpg);
 }
 
 .container2_grid_areas{
@@ -122,7 +123,9 @@
     color: #fff !important;
 }
 
-
+.footer_img{
+    padding-left:15rem;
+}
 
 .img_mintransporte{
     position: absolute;
