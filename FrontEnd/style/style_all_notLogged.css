@@ -108,11 +108,40 @@ header.sticky .navbar_menu{
     height: 100%;
 }
 
+.img_team{
+    width: 107.3%;
+    height: 100%;
+}
+
+.h1_team{
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    color: transparent;
+    font-weight: 700;
+    font-size: 8rem;
+    align-items: center;
+    line-height: 160px;
+    -webkit-text-stroke: 1px #fff;
+    background-image: url(../img/back.png);
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+}
+
+@keyframes back{
+    100%{
+        background-position: 2000px 0;
+    }
+}
+
 
 .container2 img{
     width: 100%;
     height: 100%;
 }
+
+
 
 .main-container{
 
@@ -135,6 +164,10 @@ header.sticky .navbar_menu{
     margin-left: 20vh;
 }
 
+.footer_img{
+    padding-left:15rem;
+}
+
 .footer_information{
     margin-left: 50vh;
 }
@@ -143,11 +176,11 @@ header.sticky .navbar_menu{
     margin-left: 20vh;
 }
 
-.footer_txt{
+.footer_txt_after{
     transition: all 100ms ease-out;
 }
 
-.footer_txt:hover{
+.footer_txt_after:hover{
     color: #fff;
 }
 
@@ -159,7 +192,7 @@ header.sticky .navbar_menu{
 
 #link_footer{
     text-decoration: none;
-    color: rgb(94, 94, 94) !important;
+    color: rgb(94, 94, 94);
     transition: all 100ms ease-out;
 }
 
