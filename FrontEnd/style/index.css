@@ -58,7 +58,8 @@
 }
 
 .d3{
-    background-image: url(../img/home_D5.png);
+    background-position: bottom;
+    background-image: url(../img/disc2.png)
 }
 
 .d4{
@@ -70,7 +71,7 @@
 }
 
 .d6{
-    background-image: url(../img/license.png);
+    background-image: url(../img/secure.jpg);
 }
 
 .container2_grid_areas{
@@ -87,7 +88,7 @@
     margin-top: 4vh;
     margin-left: 7vh;
     margin-right: 7vh;
-    
+    border-radius: 0.5vh;
     background-color: black;
     color: #fff;
 }
@@ -96,7 +97,8 @@
     margin: 2vh 5vh 0vh 5vh;
     color: #fff;
     padding: 1vh;
-    background-color: black;
+    background-color: rgb(37, 37, 37);
+    border-radius: 1vh;
 }
 
 .container3{

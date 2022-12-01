@@ -212,6 +212,7 @@ async function registerEnroll() {
     enroll.idAsignature = parseInt($('#idAs').val());
     enroll.idGroup = parseInt($('#idGro').val());
     enroll.idStudent = IdStudent;
+    enroll.status = "In Progress";
     register(enroll);
 }
 

@@ -57,4 +57,13 @@ public class EnrollmentController {
         }
         return new ArrayList<>();
     }
+
+    @GetMapping("/listEvo/{id}")
+    public List<Object> listEvo(@PathVariable int id, @RequestHeader(value = "authorization") String token) {
+        int idStudent = Integer.parseInt(jwtUtil.getKey(token));
+        if (idStudent == id) {
+            return enrollmentDao.listEvolution(id);
+        }
+        return new ArrayList<>();
+    }
 }

@@ -25,8 +25,6 @@ public class Enrollment {
     @Setter
     private int idGroup;
 
-    // @ManyToOne
-    // @JoinColumn(name = "Student")
     @Column(name = "idstudent", nullable = false)
     @Getter
     @Setter
@@ -41,4 +39,10 @@ public class Enrollment {
     @Getter
     @Setter
     private int idAsignature;
+
+    @Column(name = "status", nullable = false, length = 15)
+    @Getter 
+    @Setter
+    private String status;
+    
 }
