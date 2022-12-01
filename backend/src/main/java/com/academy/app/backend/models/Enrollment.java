@@ -39,4 +39,10 @@ public class Enrollment {
     @Getter
     @Setter
     private int idAsignature;
+
+    @Column(name = "status", nullable = false, length = 15)
+    @Getter 
+    @Setter
+    private String status;
+    
 }

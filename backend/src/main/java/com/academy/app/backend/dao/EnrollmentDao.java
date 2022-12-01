@@ -11,4 +11,6 @@ public interface EnrollmentDao {
     List<Object> schedule(int id);
 
     List<Object> list(int id);
+
+    List<Object> listEvolution(int id);
 }
