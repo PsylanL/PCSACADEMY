@@ -49,4 +49,9 @@ public class TeacherController {
     public List<ClassGroup> getClassGroups (@PathVariable int id){
         return teacherDao.getClassGroups(id);
     }
+
+    @PostMapping("/send/{affair}/{body}/{idTeacher}/{idStudent}")
+    public void sendEmail (@PathVariable String affair, @PathVariable String body, @PathVariable int idTeacher, @PathVariable int idStudent) {
+        teacherDao.send(affair, body, idTeacher, idStudent);
+    }
 }

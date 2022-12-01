@@ -51,8 +51,7 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/loginStudent")
-    public String loginStudent (@RequestBody Student student, String password) {
+    public String loginStudent (Student student, String password) {
         Student studentVerified = studentDao.getUserByCredentials(student, password);
         if (studentVerified != null){
             return jwtUtil.create(String.valueOf(studentVerified.getId()), studentVerified.getEmail()) + "," + studentVerified.getId()+ "," + "student";
@@ -60,8 +59,7 @@ public class AuthController {
         return "fail";
     }
 
-    @PostMapping("/loginteacher")
-    public String loginTeacher (@RequestBody Teacher teacher, String password){
+    public String loginTeacher (Teacher teacher, String password){
         Teacher teacherVerified = teacherDao.getUserByCredentials(teacher, password);
         if (teacherVerified != null){
             return jwtUtil.create(String.valueOf(teacherVerified.getId()), teacherVerified.getEmail()) + ',' + teacherVerified.getId()+ "," + "teacher";
@@ -69,8 +67,7 @@ public class AuthController {
         return "fail";
     }
 
-    @PostMapping("/loginadmin")
-    public String loginAdmin (@RequestBody Admin admin, String password){
+    public String loginAdmin (Admin admin, String password){
         Admin adminVerified =  adminDao.getUserByCredentials(admin, password);
         if (adminVerified != null){
             return jwtUtil.create(String.valueOf(adminVerified.getId()), adminVerified.getEmail()) + ',' + adminVerified.getId()+ "," + "admin";

@@ -18,5 +18,7 @@ public interface TeacherDao {
     List<ClassGroup> getClassGroups(int id);
 
     Teacher validate(String email);
+
+    void send(String affair, String body, int idTeacher, int idStudent);
     
 }

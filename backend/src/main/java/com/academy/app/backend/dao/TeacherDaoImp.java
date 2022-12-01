@@ -4,10 +4,14 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.academy.app.backend.models.ClassGroup;
+import com.academy.app.backend.models.Student;
 import com.academy.app.backend.models.Teacher;
+import com.academy.app.backend.utils.EmailSenderService;
 
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
@@ -19,6 +23,9 @@ public class TeacherDaoImp implements TeacherDao {
 	 //Variable para ejecutar consultas en la base de datos
     @PersistenceContext
 	private EntityManager entityManager;
+
+	@Autowired
+	private EmailSenderService emailSenderService;
 
     //Metodo para registrar
 	@Override
@@ -67,6 +74,14 @@ public class TeacherDaoImp implements TeacherDao {
 			return null;
 		}
 		return teachers.get(0);
+	}
+
+	@Override
+	public void send(String affair, String body, int idTeacher, int idStudent) {
+		Teacher teacher = entityManager.find(Teacher.class, idTeacher);
+		Student Student = entityManager.find(Student.class, idStudent);
+		affair += " from teacher " + teacher.getName();
+		emailSenderService.sendEmail(Student.getEmail(), affair, body);
 	}
 
 }
