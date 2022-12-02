@@ -40,19 +40,24 @@ function contador(data){
       this.contFailed++
     }
   });
-    setter(contInprogress,contCompleted,contFailed)
+    setter(contCompleted)
     chart(contInprogress,contCompleted,contFailed)
   //console.log(contCompleted)
     return contInprogress;
 }
 consulta(IdStudent)
 
-  function setter(contInprogress,contCompleted,contFailed){
-  var currentProgress1 = contInprogress*10
+  function setter(contCompleted){
+  var currentProgress2 = contCompleted*10
+  console.log(currentProgress2)
+  if(currentProgress2 == 0){
+    currentProgress2=1
+  }
+  console.log(currentProgress2)
   let progressBar = document.querySelector(".circular-progress");
   let valueContainer = document.querySelector(".value-container");
   let progressValue = 0;
-  var progressEndValue = currentProgress1;
+  var progressEndValue = currentProgress2;
   let speed = 50;
   let progress = setInterval(() => {
     progressValue++;
