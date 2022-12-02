@@ -28,7 +28,7 @@ public class EnrollmentDaoImp implements EnrollmentDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<Object> list(int id) {
-        String sqlQuery = "select e.id, idgroup, countseen, idasignature, a.name as asignatureName " +
+        String sqlQuery = "select e.id, idclassgroup, countseen, idasignature, a.name as asignatureName " +
                 "from Enrollment e inner join Asignature a on e.idasignature = a.id "
                 +
                 "where e.idstudent =" + id;
@@ -38,15 +38,23 @@ public class EnrollmentDaoImp implements EnrollmentDao {
     @SuppressWarnings("unchecked")
     @Override
     public Boolean register(Enrollment enrollment) {
-        String query = "select countseen from Enrollment where idAsignature= " + enrollment.getIdAsignature()
-                + " and idStudent = " + enrollment.getIdStudent();
-        List<Enrollment> list = entityManager.createNativeQuery(query).getResultList();
 
-        if (list.size() < 2) {
-            enrollment.setCountSeen((list.size() + 1));
-            entityManager.persist(enrollment);
+        if(enrollment.getCountSeen() == 1)
+        {
+        String query = "from Enrollment where idAsignature= " + enrollment.getIdAsignature()
+                + " and idStudent = " + enrollment.getIdStudent();
+        Enrollment en = (Enrollment) entityManager.createQuery(query).getSingleResult();
+        if(en.getCountSeen() < 2){
+            en.setCountSeen(en.getCountSeen() + 1);
+            entityManager.merge(en);
             return true;
         }
+        }
+        else{
+            enrollment.setCountSeen(1);
+            entityManager.persist(enrollment);
+            return true;
+        } 
         return false;
     }
 
@@ -65,5 +73,24 @@ public class EnrollmentDaoImp implements EnrollmentDao {
     public List<String> status(int idstudent){
         String query = "select status from Enrollment where idstudent=" + idstudent;
         return entityManager.createNativeQuery(query).getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Object> listStudentsWithAsignatures() {
+        String sqlQuery = "select s.id, s.name, s.lastname, s.email, s.phone, a.name as nameAsignature, c.schedule " + 
+		"from Enrollment e inner join ClassGroup c on e.idclassgroup = c.id " + 
+		"inner join Asignature a on c.idasignature = a.id " +
+        "inner join Student s on e.idstudent = s.id " +
+		"where e.idstudent = s.id ";
+
+        return entityManager.createNativeQuery(sqlQuery).getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Enrollment> listAll() {
+        String query = "From Enrollment";
+		return entityManager.createQuery(query).getResultList();
     }
 }

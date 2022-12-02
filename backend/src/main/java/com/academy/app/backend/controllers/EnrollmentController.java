@@ -58,6 +58,16 @@ public class EnrollmentController {
         return new ArrayList<>();
     }
 
+    @GetMapping("/listStudentWithAsignatures")
+    public List<Object> listS () {
+        return  enrollmentDao.listStudentsWithAsignatures();
+    }
+
+    @GetMapping("/listAllEnrollment")
+    public List<Enrollment> listA () {
+        return  enrollmentDao.listAll();
+    }
+
     @GetMapping("/listEvo/{id}")
     public List<Object> listEvo(@PathVariable int id, @RequestHeader(value = "authorization") String token) {
         int idStudent = Integer.parseInt(jwtUtil.getKey(token));

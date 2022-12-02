@@ -90,5 +90,13 @@ public class StudentDaoImp implements StudentDao {
 		return students.get(0);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Student> listStudentWithCourse() {
+		String query = "select s.* from enrollmentcourse e inner join student s on e.idstudent = s.id ";
+		return entityManager.createNativeQuery(query).getResultList();
+	
+	}
+
 	
 }
