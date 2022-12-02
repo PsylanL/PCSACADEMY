@@ -53,5 +53,10 @@ public class StudentController {
         return studentDao.search(id);
     }
 
+
+    @GetMapping("/listStudentWithCourse")
+    public List<Student> listS(){
+        return studentDao.listStudentWithCourse();
+    }
     
 }

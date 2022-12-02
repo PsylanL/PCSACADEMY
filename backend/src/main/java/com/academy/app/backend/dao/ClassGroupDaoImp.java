@@ -56,4 +56,23 @@ public class ClassGroupDaoImp implements ClassGroupDao {
     public void register(ClassGroup classGroup) {
         entityManager.persist(classGroup);
     }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Object> ListTeachersWithClassgroup(int id) {
+        String sqlQuery = "select distinct t.name, t.lastname, t.id " +
+                "from ClassGroup c inner join Teacher t on c.idteacher = t.id "+
+                "where c.idasignature = " + id;
+        return entityManager.createNativeQuery(sqlQuery).getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Object> ClassgroupsAvailables(int id) {
+        String sqlQuery = "select c.schedule, c.description, c.id " +
+                "from ClassGroup c "+
+                "where c.idteacher = " + id;
+        return entityManager.createNativeQuery(sqlQuery).getResultList();
+    }
+
 }

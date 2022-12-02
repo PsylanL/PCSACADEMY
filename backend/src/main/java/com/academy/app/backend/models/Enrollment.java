@@ -20,10 +20,10 @@ public class Enrollment {
     @Setter
     private int id;
 
-    @Column(name = "idgroup", nullable = false)
+    @Column(name = "idclassgroup", nullable = false)
     @Getter
     @Setter
-    private int idGroup;
+    private int idClassGroup;
 
     @Column(name = "idstudent", nullable = false)
     @Getter

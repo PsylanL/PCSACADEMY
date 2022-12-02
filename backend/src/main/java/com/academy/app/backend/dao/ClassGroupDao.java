@@ -15,4 +15,9 @@ public interface ClassGroupDao {
 
     void register(ClassGroup classGroup);
 
+    List <Object> ListTeachersWithClassgroup(int id);
+
+    List <Object> ClassgroupsAvailables(int id);
+
+
 }

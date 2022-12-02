@@ -1,0 +1,41 @@
+.container1{
+    display: flex;
+    width: 100%;
+}
+
+#sub_titles{
+    margin-left: 48.5%;
+}
+
+#sub_list_of_class_groups{
+    margin-left: 43%;
+}
+
+#enrollAsignaturesStudent{
+    margin-left: 20%;
+}
+
+
+/* TABLE STUDENTS */
+
+#th_titles{
+    text-align: center;
+}
+
+.cont_table_students{
+    margin-top: 2vh;
+    width: 100%;
+}
+
+#tableData{
+   width: max-content;
+   margin: auto;
+   margin-top: 2%;
+}
+
+#titleModalEnrollStudent{
+    margin-left: auto;
+}
+
+
+/* END TABLE STUDENTS */

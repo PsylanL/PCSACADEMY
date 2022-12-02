@@ -34,6 +34,7 @@ public class ClassGroupController {
         return classGroupDao.listTeachersWithAsignatures();
     }
 
+
     @GetMapping("/getStudents/{id}")
     public List<Object> getStudents (@PathVariable int id){
         return classGroupDao.getStudents(id);
@@ -42,5 +43,15 @@ public class ClassGroupController {
     @PostMapping("/register")
     public void registerAsignatureTeacher (@RequestBody ClassGroup classGroup){
         classGroupDao.register(classGroup);
+    }
+
+    @GetMapping("/listTeachersWithClassgroups/{id}")
+    public List<Object> listTWC(@PathVariable int id){
+        return classGroupDao.ListTeachersWithClassgroup(id);
+    }
+
+    @GetMapping("/classgroupsAvailables/{id}")
+    public List<Object> ClassgroupA(@PathVariable int id){
+        return classGroupDao.ClassgroupsAvailables(id);
     }
 }

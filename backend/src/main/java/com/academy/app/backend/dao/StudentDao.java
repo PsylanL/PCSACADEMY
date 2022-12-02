@@ -10,6 +10,8 @@ public interface StudentDao {
 	
 	List<Student> list();
 
+    List<Student> listStudentWithCourse();
+
     Student getUserByCredentials(Student student, String password);
 
     List<Student> search(int id);
