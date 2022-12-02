@@ -15,4 +15,11 @@ public interface EnrollmentDao {
     List<Enrollment> listAll();
 
     List<Object> listStudentsWithAsignatures();
+
+    List<Object> listEvolution(int id);
+
+    List<String> status(int idstudent);
+    /* 
+    boolean getStatusOF();
+    */
 }

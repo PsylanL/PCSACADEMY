@@ -20,4 +20,8 @@ public interface ClassGroupDao {
     List <Object> ClassgroupsAvailables(int id);
 
 
+    ClassGroup getClassgGroup(int id);
+
+    void merge(ClassGroup classGroup);
+
 }

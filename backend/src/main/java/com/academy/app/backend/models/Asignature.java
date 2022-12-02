@@ -25,7 +25,7 @@ public class Asignature {
     @Setter
     private String name;
 
-    @Column(name = "course", nullable = false, length = 50)
+    @Column(name = "course", nullable = false)
     @Getter
     @Setter
     private int course;

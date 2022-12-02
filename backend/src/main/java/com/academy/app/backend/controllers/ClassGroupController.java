@@ -54,4 +54,14 @@ public class ClassGroupController {
     public List<Object> ClassgroupA(@PathVariable int id){
         return classGroupDao.ClassgroupsAvailables(id);
     }
+
+    @GetMapping("/get/{id}")
+    public ClassGroup getClassgGroup (@PathVariable int id) {
+        return classGroupDao.getClassgGroup(id);
+    }
+
+    @PostMapping("/merge")
+    public void merge (@RequestBody ClassGroup classGroup) {
+        classGroupDao.merge(classGroup);
+    }
 }

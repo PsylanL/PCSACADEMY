@@ -75,4 +75,14 @@ public class ClassGroupDaoImp implements ClassGroupDao {
         return entityManager.createNativeQuery(sqlQuery).getResultList();
     }
 
+
+    @Override
+    public ClassGroup getClassgGroup(int id) {
+        return entityManager.find(ClassGroup.class, id);
+    }
+
+    @Override
+    public void merge(ClassGroup classGroup) {
+        entityManager.merge(classGroup);
+    }
 }

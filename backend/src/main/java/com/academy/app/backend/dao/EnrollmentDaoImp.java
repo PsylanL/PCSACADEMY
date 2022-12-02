@@ -56,7 +56,23 @@ public class EnrollmentDaoImp implements EnrollmentDao {
             return true;
         } 
         return false;
+    }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Object> listEvolution(int id) {
+        String sqlQuery = "select c.name as courseName,a.name as asignatureName, e.status " +
+                "from Enrollment e inner join Asignature a on e.idasignature = a.id "+
+                "inner join Course c on a.course = c.id " +
+                "where e.idstudent = " + id;
+        return entityManager.createNativeQuery(sqlQuery).getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<String> status(int idstudent){
+        String query = "select status from Enrollment where idstudent=" + idstudent;
+        return entityManager.createNativeQuery(query).getResultList();
     }
 
     @SuppressWarnings("unchecked")
