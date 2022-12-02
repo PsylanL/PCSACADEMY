@@ -66,4 +66,10 @@ public class EnrollmentController {
         }
         return new ArrayList<>();
     }
+
+    @GetMapping("/status/{idStudent}")
+    public List<String> status(@PathVariable int idStudent) {
+            return enrollmentDao.status(idStudent);
+    }
+
 }

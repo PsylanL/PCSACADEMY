@@ -201,3 +201,24 @@ header.sticky .navbar_menu{
 }
 
 /*END FOOTER*/
+
+/*ERROR404 PAGE*/
+
+.container_error{
+    margin-top: 12rem;
+    align-items: center;
+    text-align: center;
+}
+
+.oops{
+    font-size: 8rem;
+}
+
+.error{
+    font-size: 5rem;
+    color: red;
+}
+
+.notfound{
+    font-size: 2rem;
+}

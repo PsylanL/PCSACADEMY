@@ -13,4 +13,9 @@ public interface EnrollmentDao {
     List<Object> list(int id);
 
     List<Object> listEvolution(int id);
+
+    List<String> status(int idstudent);
+    /* 
+    boolean getStatusOF();
+    */
 }

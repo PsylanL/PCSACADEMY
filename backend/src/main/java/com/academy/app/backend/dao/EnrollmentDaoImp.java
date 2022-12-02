@@ -48,8 +48,8 @@ public class EnrollmentDaoImp implements EnrollmentDao {
             return true;
         }
         return false;
-
     }
+
     @SuppressWarnings("unchecked")
     @Override
     public List<Object> listEvolution(int id) {
@@ -58,5 +58,12 @@ public class EnrollmentDaoImp implements EnrollmentDao {
                 "inner join Course c on a.course = c.id " +
                 "where e.idstudent = " + id;
         return entityManager.createNativeQuery(sqlQuery).getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<String> status(int idstudent){
+        String query = "select status from Enrollment where idstudent=" + idstudent;
+        return entityManager.createNativeQuery(query).getResultList();
     }
 }

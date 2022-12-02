@@ -276,3 +276,16 @@ function showPensum() {
 }
 
 //fin pensum
+
+async function validateStatus(IdStudent) {
+        const getStatus ='http://localhost:8080/api/enrollment/status/' + IdStudent ;
+        let request = await fetch (getStatus, {
+            method: 'GET',
+            headers: {
+                'authorization': localStorage.token
+            }
+        });
+        let response = await request.json();
+        this.data = response;
+        listEnrollment(IdStudent);
+}

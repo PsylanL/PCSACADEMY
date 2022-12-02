@@ -68,10 +68,10 @@ a{
 
 .sidebar{
     position: absolute;
-    top: 9.5vh;
+    top: 10.3vh;
     left: 0;
     width: 15vh;
-    height: 90.5%;
+    height: 90%;
     color: rgb(0, 0, 0);
     background-color: rgb(249, 250, 251);
 }
@@ -107,17 +107,22 @@ a{
 }
 
 .ornament{
-    position: absolute;
-    margin-top: 4rem;
-
-    left: 68rem;
+    padding-top: 12rem;
+    padding-left: 10rem;
 }
 
-.xmas{
+.container_trophy{
     position: absolute;
-    margin: 0;
-    top: 73%;
-    left: 80%;
+    left: 45%;
+}
+
+.trophy{
+    margin-left: 2rem;
+}
+
+.trophy_h1{
+    position: absolute;
+    padding-left: 2rem;
 }
 
 #enrollAsignaturesTeachers{
@@ -136,4 +141,72 @@ a{
 
 #table_container{
     margin-top: 2rem;
+}
+
+.ornament{
+    position:relative;
+    top:4.8%;
+    left: 77%;
+    margin-bottom: 0;
+    margin-top: 0.7vh;
+}
+
+.container_chart{
+    position: absolute;
+    top:50%;
+    right: 50%;
+}
+
+/*CHARTS*/
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container_circular {
+  height: 400px;
+  width: 400px;
+  background-color: #ffffff;
+  position: absolute;
+  top: 55%;
+  left: 65%;
+  border-radius: 8px;
+  box-shadow: 20px 20px 40px rgba(60, 60, 150, 0.25);
+  display: grid;
+  place-items: center;
+}
+.circular-progress {
+  position: relative;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.circular-progress:before {
+  content: "";
+  position: absolute;
+  height: 84%;
+  width: 84%;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+.value-container {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: 50px;
+  color: #231c3d;
+}
+
+.container_graph{
+    position: absolute;
+    top: 55%;
+    left: 15%;
+    height: 25rem;
+    width: 50rem;
+    border-radius: 8px;
+    box-shadow: 20px 20px 40px rgba(60, 60, 150, 0.25);
 }
