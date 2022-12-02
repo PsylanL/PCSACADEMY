@@ -15,4 +15,8 @@ public interface ClassGroupDao {
 
     void register(ClassGroup classGroup);
 
+    ClassGroup getClassgGroup(int id);
+
+    void merge(ClassGroup classGroup);
+
 }

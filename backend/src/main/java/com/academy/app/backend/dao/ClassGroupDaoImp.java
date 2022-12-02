@@ -56,4 +56,14 @@ public class ClassGroupDaoImp implements ClassGroupDao {
     public void register(ClassGroup classGroup) {
         entityManager.persist(classGroup);
     }
+
+    @Override
+    public ClassGroup getClassgGroup(int id) {
+        return entityManager.find(ClassGroup.class, id);
+    }
+
+    @Override
+    public void merge(ClassGroup classGroup) {
+        entityManager.merge(classGroup);
+    }
 }

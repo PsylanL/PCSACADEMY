@@ -43,4 +43,14 @@ public class ClassGroupController {
     public void registerAsignatureTeacher (@RequestBody ClassGroup classGroup){
         classGroupDao.register(classGroup);
     }
+
+    @GetMapping("/get/{id}")
+    public ClassGroup getClassgGroup (@PathVariable int id) {
+        return classGroupDao.getClassgGroup(id);
+    }
+
+    @PostMapping("/merge")
+    public void merge (@RequestBody ClassGroup classGroup) {
+        classGroupDao.merge(classGroup);
+    }
 }
