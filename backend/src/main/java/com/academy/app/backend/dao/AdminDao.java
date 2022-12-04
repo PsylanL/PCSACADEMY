@@ -10,11 +10,10 @@ public interface AdminDao {
 	
 	List<Admin> list();
 
-	Admin getUserByCredentials(Admin admin);
+	Admin getUserByCredentials(Admin admin, String password);
 
 	List<Admin> search(int id);
 
-	
+    Admin validate(String email);
 
-    
 }

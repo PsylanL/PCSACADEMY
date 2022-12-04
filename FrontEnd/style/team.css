@@ -1,0 +1,32 @@
+.container_team{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container2{
+    margin: 10%;
+}
+
+.container_team_h1{
+    text-align: center;
+}
+
+.container_team_h3{
+    text-align: center;
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+    background-image: url(../img/back2.webp);
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+}
+.logo{
+    cursor: pointer;
+}
+
+.mike_team{
+    position: absolute;
+    right: 0;
+    height: 22rem !important; 
+    width: 25rem !important;
+}

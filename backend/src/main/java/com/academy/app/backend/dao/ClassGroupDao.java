@@ -13,4 +13,15 @@ public interface ClassGroupDao {
 
     List<Object> getStudents(int id);
 
+    void register(ClassGroup classGroup);
+
+    List <Object> ListTeachersWithClassgroup(int id);
+
+    List <Object> ClassgroupsAvailables(int id);
+
+
+    ClassGroup getClassgGroup(int id);
+
+    void merge(ClassGroup classGroup);
+
 }

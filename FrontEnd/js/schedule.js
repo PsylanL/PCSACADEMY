@@ -11,6 +11,7 @@ async function schedule(Id){
             'authorization': localStorage.token
         }
     });
+    console.log(getSchedule)
     let response = await request.json();
     this.data = response;
     console.log(data);

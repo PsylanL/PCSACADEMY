@@ -1,6 +1,5 @@
 package com.academy.app.backend.controllers;
 
-import java.nio.file.Path;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +48,10 @@ public class TeacherController {
     @GetMapping("/classgroup/{id}")
     public List<ClassGroup> getClassGroups (@PathVariable int id){
         return teacherDao.getClassGroups(id);
+    }
+
+    @PostMapping("/send/{affair}/{body}/{idTeacher}/{idStudent}")
+    public void sendEmail (@PathVariable String affair, @PathVariable String body, @PathVariable int idTeacher, @PathVariable int idStudent) {
+        teacherDao.send(affair, body, idTeacher, idStudent);
     }
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.academy.app.backend.dao.ClassGroupDao;
@@ -32,8 +34,34 @@ public class ClassGroupController {
         return classGroupDao.listTeachersWithAsignatures();
     }
 
+
     @GetMapping("/getStudents/{id}")
     public List<Object> getStudents (@PathVariable int id){
         return classGroupDao.getStudents(id);
+    }
+
+    @PostMapping("/register")
+    public void registerAsignatureTeacher (@RequestBody ClassGroup classGroup){
+        classGroupDao.register(classGroup);
+    }
+
+    @GetMapping("/listTeachersWithClassgroups/{id}")
+    public List<Object> listTWC(@PathVariable int id){
+        return classGroupDao.ListTeachersWithClassgroup(id);
+    }
+
+    @GetMapping("/classgroupsAvailables/{id}")
+    public List<Object> ClassgroupA(@PathVariable int id){
+        return classGroupDao.ClassgroupsAvailables(id);
+    }
+
+    @GetMapping("/get/{id}")
+    public ClassGroup getClassgGroup (@PathVariable int id) {
+        return classGroupDao.getClassgGroup(id);
+    }
+
+    @PostMapping("/merge")
+    public void merge (@RequestBody ClassGroup classGroup) {
+        classGroupDao.merge(classGroup);
     }
 }

@@ -2,11 +2,9 @@ package com.academy.app.backend.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.core.sym.Name;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +15,6 @@ public class ClassGroup {
     
     @Id
     @Column(name = "id")
-    @GeneratedValue
     @Getter @Setter
     private int id;
 
