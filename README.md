@@ -42,3 +42,10 @@ See [LICENSE] for details.
 INSERT INTO `admin` (`id`, `email`, `lastname`, `name`, `password`, `phone`, `years`) VALUES ('1', 'youremail@gmail.com', 'your lastname', 'your name', '$argon2id$v=19$m=1024,t=1,p=1$W+I6pfl0QDs5AiZHpHpTFw$txhaB7uAh6ZKezeZcUhw8eiWpSRaz7Ke84VQZmVcf8U', '3333333333', '18')
  ```
 
+
+## Autores ✒️
+
+* **Juan David Uribe Restrepo** - *Desarrollador*
+* **Dylan Lopez Guzman** - *Desarrollador*
+* **Daniel Hernesto Salazar Restrepo** - *Desarrollador*
+* **Santiago Agudelo Herrera** - *Desarrollador*
