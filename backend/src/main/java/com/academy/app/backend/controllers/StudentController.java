@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.academy.app.backend.models.ClassGroup;
 import com.academy.app.backend.models.Student;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
@@ -59,4 +61,8 @@ public class StudentController {
         return studentDao.listStudentWithCourse();
     }
     
+    @GetMapping("/classgroup/{id}")
+    public List<ClassGroup> getClassGroups (@PathVariable int id){
+        return studentDao.getClassGroups(id);
+    }
 }

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.academy.app.backend.models.Admin;
+import com.academy.app.backend.models.ClassGroup;
 import com.academy.app.backend.models.Student;
 import com.academy.app.backend.models.Teacher;
 import com.academy.app.backend.utils.EmailSenderService;
@@ -96,6 +97,20 @@ public class StudentDaoImp implements StudentDao {
 		String query = "select s.* from enrollmentcourse e inner join student s on e.idstudent = s.id ";
 		return entityManager.createNativeQuery(query).getResultList();
 	
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ClassGroup> getClassGroups(int id) {
+		List<ClassGroup> listClass = new ArrayList<ClassGroup>();
+		String query1 = "select idgroup from enrollment where idstudent = " + id;
+		List<Integer> result1 = entityManager.createNativeQuery(query1).getResultList();
+
+		for (Integer element : result1) {
+			String query2 = "from ClassGroup where id = " + element;
+			listClass.add((ClassGroup) entityManager.createQuery(query2).getSingleResult());
+		}
+		return listClass;
 	}
 
 	

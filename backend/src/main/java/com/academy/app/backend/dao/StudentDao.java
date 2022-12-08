@@ -2,6 +2,7 @@ package com.academy.app.backend.dao;
 
 import java.util.List;
 
+import com.academy.app.backend.models.ClassGroup;
 import com.academy.app.backend.models.Student;
 
 public interface StudentDao {
@@ -19,4 +20,6 @@ public interface StudentDao {
     void confirmRegister(Student student);
 
     Student validate(String email);
+
+    List<ClassGroup> getClassGroups(int id);
 }
