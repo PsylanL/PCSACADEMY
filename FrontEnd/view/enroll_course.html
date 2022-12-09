@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Course Enroll</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../style/courses.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+        <style>
+          .toast-error {
+              background-color: red;
+          }
+  
+          .toast-success {
+              background-color: green;
+          }
+      </style>
+</head>
+
+<body>
+    <header>
+        <div class="container_header">
+                <h1 class="container_header_title" id="titles">PCSACADEMY</h1>
+                <h3 class="container_header_subtitle" id="sub_titles">Students Hub</h1>
+                    <div class="dropdown container" id="dropdown_container">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" id="simpleDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a onclick="signOut()" class="dropdown-item">Sign out</a></li>
+                        <li><a href="#" class="dropdown-item">My courses</a></li>
+                        <li><a href="#" class="dropdown-item">Enroll Asignature</a></li>
+                    </ul>
+                </div>
+                <div class="separator"></div>
+        </div>
+    </header>
+    <div class="sidebar">
+        <ul class="sidebar_list">
+            <li class="sidebar_list_item"><a href="../view/courses_home.html">Home</a></li>
+            <li class="sidebar_list_item "><a href="../view/courses_enroll.html">Asignature Enroll</a></li>
+            <li class="sidebar_list_item"><a href="../view/courses_schedule.html">Schedule</a></li>
+            <li class="sidebar_list_item"><a href="../view/academicEvolution.html">Evolution</a></li>
+            <li class="sidebar_list_item"><a href="../view/courses_progress.html">My progress</a></li>
+            <li class="sidebar_list_item active"><a href="../view/enroll_course.html">Course Enroll</a></li>
+
+
+        </ul>
+    </div>
+    <br><br><br>
+    <div class="container" id="table_container">
+      <button id="btn-agg-enrollment" onclick="openModal()" class="btn btn-primary">Course Enroll <i class="fa-solid fa-book"></i></button>
+      <table id="course" class="table table-bordered"><br><br><br>
+        <thead>
+            <tr>
+                
+                <th scope="col">ID</th>
+                <th scope="col">COURSE</th>
+                <th scope="col">STUDENT</th>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+    </div>
+
+     <!--Inicio Modal Enroll-->
+     <div class="modal fade" id="modal-register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="modal-register-title">Enroll <i class="fa-solid fa-book"></i>
+                  </h1>
+                  <button type="button" class="btn-close" onclick="closeModal()" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div id="inputs-register">
+                  <span>Course | Name</span>
+                  <span id="nameCourse"></span>
+                  <div class="input-group flex-nowrap">
+                      <select class="form-select form-select-sm" name="course" id="idCourse" onchange="selectChange()">
+                        <option value="0">Select</option>
+
+                      </select>
+                      <input id="idCour" type="text" class="form-control"
+                      aria-describedby="addon-wrapping" readonly> 
+                      
+                  </div>
+              </div>
+
+                  <div id="inputs-register">
+                    <span>ID  Student</span>
+                    <div class="input-group flex-nowrap">
+                      <input id="idStudent" type="text" class="form-control"
+                      aria-describedby="addon-wrapping" readonly> 
+                   </div>
+                </div>
+     
+              </div>
+
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
+                  <button onclick="registerCourseStudent()" type="button" class="btn btn-primary">Confirm Registration</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Fin Modal -->
+
+    
+  <footer>
+    <!-- place footer here -->
+  </footer>
+
+</body>
+
+</html>
+
+<script src="https://kit.fontawesome.com/13dcc31221.js" crossorigin="anonymous"></script>
+<script src="../js/enroll_course.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="../js/global.js"></script>
+
