@@ -130,7 +130,7 @@ function openModalEnrollStudent() {
 }
 
 function closeModalEnrollStudent() {
-    ModalEnrollStudent.hide();
+    location.reload();
 }
 
 async function listAsignatures() {
@@ -373,8 +373,12 @@ function openModalStudentsWithAsignaturesApproved() {
         keyboard: false
     })
 
-    ModalStudentWithAsignaturesApproved.show();
-    list(studentsWithAsignaturesApproved, "tableDataStudentsWithAsignaturesApproved", "tbodyStudentsWithAsignaturesApproved")
+    if(studentsWithAsignaturesApproved.length != 0){
+        ModalStudentWithAsignaturesApproved.show();
+        list(studentsWithAsignaturesApproved, "tableDataStudentsWithAsignaturesApproved", "tbodyStudentsWithAsignaturesApproved")
+    } else {
+        notification("error", "ERROR", "There are not students with asignatures aproved")
+    }
 
 }
 
@@ -392,8 +396,12 @@ function openModalStudentsWithAsignaturesDisapproved() {
         keyboard: false
     })
 
-    ModalStudentWithAsignaturesDisapproved.show();
-    list(studentsWithAsignaturesDisapproved, "tableDataStudentsWithAsignaturesDisapproved", "tbodyStudentsWithAsignaturesDisapproved")
+    if(studentsWithAsignaturesDisapproved.length != 0){
+        ModalStudentWithAsignaturesDisapproved.show();
+        list(studentsWithAsignaturesDisapproved, "tableDataStudentsWithAsignaturesDisapproved", "tbodyStudentsWithAsignaturesDisapproved")
+    } else {
+        notification("error", "ERROR", "There are not students with asignatures disaproved")
+    }
 
 }
 
