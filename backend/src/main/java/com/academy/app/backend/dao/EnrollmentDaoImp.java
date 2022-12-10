@@ -46,6 +46,7 @@ public class EnrollmentDaoImp implements EnrollmentDao {
         Enrollment en = (Enrollment) entityManager.createQuery(query).getSingleResult();
         if(en.getCountSeen() < 2){
             en.setCountSeen(en.getCountSeen() + 1);
+            en.setStatus(enrollment.getStatus());
             entityManager.merge(en);
             return true;
         }
@@ -78,7 +79,7 @@ public class EnrollmentDaoImp implements EnrollmentDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<Object> listStudentsWithAsignatures() {
-        String sqlQuery = "select s.id, s.name, s.lastname, s.email, s.phone, a.name as nameAsignature, c.schedule " + 
+        String sqlQuery = "select s.id, s.name, s.lastname, s.email, s.phone, a.name as nameAsignature, c.schedule, e.status " + 
 		"from Enrollment e inner join ClassGroup c on e.idclassgroup = c.id " + 
 		"inner join Asignature a on c.idasignature = a.id " +
         "inner join Student s on e.idstudent = s.id " +

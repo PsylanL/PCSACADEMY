@@ -7,9 +7,6 @@
     margin-left: 48.5%;
 }
 
-#sub_list_of_class_groups{
-    margin-left: 43%;
-}
 
 #enrollAsignaturesStudent{
     margin-left: 20%;
@@ -33,9 +30,19 @@
    margin-top: 2%;
 }
 
-#titleModalEnrollStudent{
+#titleModal{
     margin-left: auto;
 }
 
 
 /* END TABLE STUDENTS */
+
+
+/* SCREEN STUDENTS WITH SUBJECTS*/
+
+#sub_list_of_students{
+    padding-top: 1%;
+    margin-left: 43%;
+}
+
+/* END SCREEN STUDENTS WITH SUBJECTS */

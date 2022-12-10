@@ -103,7 +103,7 @@ public class StudentDaoImp implements StudentDao {
 	@Override
 	public List<ClassGroup> getClassGroups(int id) {
 		List<ClassGroup> listClass = new ArrayList<ClassGroup>();
-		String query1 = "select idgroup from enrollment where idstudent = " + id;
+		String query1 = "select idclassgroup from enrollment where idstudent = " + id;
 		List<Integer> result1 = entityManager.createNativeQuery(query1).getResultList();
 
 		for (Integer element : result1) {

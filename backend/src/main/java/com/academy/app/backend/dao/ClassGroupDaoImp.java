@@ -33,7 +33,7 @@ public class ClassGroupDaoImp implements ClassGroupDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<Object> listTeachersWithAsignatures() {
-        String sqlQuery = "select t.id, t.name, t.lastname, t.email, t.phone, a.name as asignatureName, c.schedule " + 
+        String sqlQuery = "select t.id, t.name, t.lastname, t.email, t.phone, a.name as asignatureName, c.schedule, c.id as idClassgroup " + 
 		"from ClassGroup c inner join Teacher t on c.idteacher = t.id " + 
 		"inner join Asignature a on c.idasignature = a.id " +
 		"where c.idteacher = t.id ";
