@@ -7,7 +7,7 @@ import com.academy.app.backend.models.Teacher;
 
 public interface TeacherDao {
 	
-	void register(Teacher teacher);
+	String register(Teacher teacher);
 	
 	List<Teacher> list();
 
@@ -20,5 +20,8 @@ public interface TeacherDao {
     Teacher validate(String email);
 
     void send(String affair, String body, int idTeacher, int idStudent);
+
+    void confirmRegister(Teacher teacher);
+
     
 }
