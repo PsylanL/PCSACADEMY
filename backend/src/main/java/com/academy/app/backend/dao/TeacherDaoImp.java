@@ -5,10 +5,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.hibernate.persister.walking.spi.EntityIdentifierDefinition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.academy.app.backend.models.ClassGroup;
+import com.academy.app.backend.models.Enrollment;
 import com.academy.app.backend.models.Student;
 import com.academy.app.backend.models.Teacher;
 import com.academy.app.backend.utils.EmailSenderService;
@@ -82,6 +84,14 @@ public class TeacherDaoImp implements TeacherDao {
 		Student Student = entityManager.find(Student.class, idStudent);
 		affair += " from teacher " + teacher.getName();
 		emailSenderService.sendEmail(Student.getEmail(), affair, body);
+	}
+
+	@Override
+	public void qualify(int idStudent, int classgroup, String option) {
+		String query = "from Enrollment where idStudent = " +idStudent + " AND idclassgroup = " + classgroup;
+		Enrollment enrollment = (Enrollment) entityManager.createQuery(query).getSingleResult();
+		enrollment.setStatus(option);
+		entityManager.merge(enrollment);
 	}
 
 }

@@ -35,7 +35,6 @@ public class EnrollmentDaoImp implements EnrollmentDao {
         return entityManager.createNativeQuery(sqlQuery).getResultList();
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public Boolean register(Enrollment enrollment) {
 

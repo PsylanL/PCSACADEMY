@@ -20,5 +20,7 @@ public interface TeacherDao {
     Teacher validate(String email);
 
     void send(String affair, String body, int idTeacher, int idStudent);
+
+    void qualify(int id, int classgroup, String option);
     
 }

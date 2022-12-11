@@ -31,7 +31,6 @@ public class EnrollmentCourseDaoImp implements EnrollmentCourseDao{
 		return entityManager.createQuery(query).getResultList();
 	}
 
-    @SuppressWarnings("unchecked")
 	@Override
 	public void register(EnrollmentCourse enrollmentCourse) {
         entityManager.persist(enrollmentCourse);

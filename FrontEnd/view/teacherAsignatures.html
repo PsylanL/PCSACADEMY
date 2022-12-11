@@ -141,6 +141,31 @@
 
     </div>
 
+    <div class="modal fade" id="qualify" tabindex="-1" aria-hidden="true" aria-labelledby="modalMailTittle">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-tittle" id="modalMailittle">Qualify</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="affair" class="form-label">Calification</label>
+                        <select class="form-select" aria-label="Default select example" id="selectQuilify">
+                            <option selected value = "1">Open this select menu</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Disapproved">Disapproved</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeQualifyMail()">Cancel</button>
+                    <button type="button" id="SendQualify" class="btn btn-primary">Send qualify</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <!-- JavaScript Bundle with Popper -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>

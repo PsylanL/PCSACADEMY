@@ -54,4 +54,9 @@ public class TeacherController {
     public void sendEmail (@PathVariable String affair, @PathVariable String body, @PathVariable int idTeacher, @PathVariable int idStudent) {
         teacherDao.send(affair, body, idTeacher, idStudent);
     }
+
+    @PostMapping("qualify/{id}/{classgroup}/{option}")
+    public void qualify(@PathVariable int id, @PathVariable int classgroup ,@PathVariable String option){
+        teacherDao.qualify(id, classgroup, option);
+    }
 }

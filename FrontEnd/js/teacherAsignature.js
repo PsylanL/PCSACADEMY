@@ -57,6 +57,7 @@ function cards(list) {
     });
 
 }
+var classgroup = 0;
 
 async function functionToList(id) {
     openModalList();
@@ -66,30 +67,69 @@ async function functionToList(id) {
     let request = await fetch(getStudents);
     let respose = await request.json();
     students = respose;
-
+    this.classgroup = id;
     let StudentsTable = document.getElementById('tableStudents');
     let tableBody = document.getElementById('tbody');
 
     for (element of students) {
-        let row = document.createElement('tr');
-        row.className = 'table-light'
-        let td = document.createElement('td');
-
-        td = document.createElement('td');
-        td.innerText = element[0];
-        row.appendChild(td);
-
-        td = document.createElement('td');
-        td.innerText = element[1];
-        row.appendChild(td);
-
-        td = document.createElement('td');
-        td.innerHTML = '<div class="size"><button class="fa-solid fa-paper-plane btn btn-outline-primary btn-sm" onclick="sendMail(' + element[0] + ')" id="btnSend"></button></div>';
-        row.appendChild(td);
-
-        tableBody.appendChild(row);
+        if (element[2] == "In progress") {
+            let row = document.createElement('tr');
+            row.className = 'table-light'
+            let td = document.createElement('td');
+    
+            td = document.createElement('td');
+            td.innerText = element[0];
+            row.appendChild(td);
+    
+            td = document.createElement('td');
+            td.innerText = element[1];
+            row.appendChild(td);
+    
+            td = document.createElement('td');
+            td.innerHTML = '<div class="size"><button class="fa-solid fa-paper-plane btn btn-outline-primary btn-sm" onclick="sendMail(' + element[0] + ')" id="btnSend"> Send email</button></div>' +
+            '<div class="size"><button class="fa-solid fa-sharp fa-check btn btn-outline-primary btn-sm" onclick="qualify(' + element[0] + ')" id="btnSend"> Qualify</button></div>';
+            row.appendChild(td);
+    
+            tableBody.appendChild(row);
+        }
     }
     StudentsTable.appendChild(tableBody);
+}
+
+var qualifyModal = '';
+function openQuilifyModal() {
+    qualifyModal = new bootstrap.Modal(document.getElementById("qualify"), {
+        keyboard: false
+    })
+    qualifyModal.show();
+}
+
+function closeQualifyMail() {
+    qualifyModal.hide();
+}
+
+function qualify (idStudent) {
+    openQuilifyModal();
+
+    console.log(classgroup);
+    
+    btnSendQua = document.getElementById('SendQualify');
+    console.log(btnSendQua)
+    btnSendQua.onclick = async function (){
+        option = document.getElementById('selectQuilify').value;
+        if (option != 1) {
+            const request = await fetch('http://localhost:8080/api/teacher/qualify/' + idStudent + '/' + classgroup +"/"+ option, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            });
+
+        } else {
+            notification("error", "ERROR", "Please select a calification");
+        }
+    };
 }
 
 var modalMail = '';

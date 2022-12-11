@@ -46,7 +46,7 @@ public class ClassGroupDaoImp implements ClassGroupDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<Object> getStudents(int id) {
-        String query =  "SELECT s.id, s.name " +
+        String query =  "SELECT s.id, s.name, e.status " +
                         "FROM enrollment e INNER join student s on s.id = e.idstudent INNER join classgroup c on c.id = e.idclassgroup " +
                         "where c.id = " + id;
         return entityManager.createNativeQuery(query).getResultList();
