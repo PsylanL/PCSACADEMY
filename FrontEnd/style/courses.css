@@ -210,3 +210,22 @@ a{
     border-radius: 8px;
     box-shadow: 20px 20px 40px rgba(60, 60, 150, 0.25);
 }
+
+#form-teacher{
+    margin-top: 5%;
+    background-color: rgba(252, 252, 252, 0.637);
+    width: 120vh;
+    height: max-content;
+    border-radius: 5%;
+    box-shadow: 22px 10px 37px -3px rgba(111,144,148,0.74);
+
+}
+
+#tableForm{
+    margin-left: 10vh;
+}
+
+#title_form{
+    text-align: center;
+}
+
