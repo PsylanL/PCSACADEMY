@@ -229,3 +229,20 @@ a{
     text-align: center;
 }
 
+/* FOOTER */
+
+.footer_container{
+    width: 100%;
+    display: flex;
+    background-color:rgb(226, 225, 225);
+    left: 0;
+    color: rgb(94, 94, 94);
+    padding-top: 1.8vh;
+    min-height: 5vh;
+    bottom: 0;
+    position: absolute;
+}
+
+.footer_information{
+    margin-left: 30%;
+}

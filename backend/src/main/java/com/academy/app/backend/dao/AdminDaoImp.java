@@ -26,11 +26,6 @@ public class AdminDaoImp implements AdminDao {
 		return entityManager.createQuery(query).getResultList();
 	}
 
-    @Override
-    public void register(Admin admin) {
-        // TODO Auto-generated method stub
-        
-    }
 
     @Override
     public Admin getUserByCredentials(Admin admin, String password) {

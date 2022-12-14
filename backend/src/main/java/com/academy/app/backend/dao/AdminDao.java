@@ -6,7 +6,6 @@ import com.academy.app.backend.models.Admin;
 
 public interface AdminDao {
 	
-	void register(Admin admin);
 	
 	List<Admin> list();
 
