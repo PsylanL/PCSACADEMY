@@ -34,6 +34,7 @@ async function listTeacher() {
     let response = await request.json();
     this.data = response;    
     list(this.data);
+    console.log(this.data)
 
 }
 window.onload = listTeacher();
@@ -66,11 +67,11 @@ async function list(elem) {
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.innerText = element[5];
+        td.innerText = element[4];
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.innerText = element[6];
+        td.innerText = element[5];
         row.appendChild(td);
 
 
