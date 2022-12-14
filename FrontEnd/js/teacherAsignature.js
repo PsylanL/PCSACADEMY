@@ -41,7 +41,7 @@ function cards(list) {
             '<button type="button" class="btn btn-primary btn-card" onclick="functionToList(' + element.id + ')" aria-expanded="false">Student list</button>' +
             '</li>' +
             '<li class="list-group-item">' +
-            '<button type="button" class="btn btn-primary btn-card" onclick="updateDescription(' + element.id + ')" aria-expanded="false">modify description</button>' +
+            '<button type="button" class="btn btn-primary btn-card" onclick="updateDescription(' + element.id + ')" aria-expanded="false">Modify description</button>' +
             '</li>'
 
         const div = document.createElement('div');
@@ -108,13 +108,12 @@ function closeQualifyMail() {
     qualifyModal.hide();
 }
 
+
 function qualify (idStudent) {
     openQuilifyModal();
 
-    console.log(classgroup);
     
     btnSendQua = document.getElementById('SendQualify');
-    console.log(btnSendQua)
     btnSendQua.onclick = async function (){
         option = document.getElementById('selectQuilify').value;
         if (option != 1) {
@@ -125,6 +124,8 @@ function qualify (idStudent) {
                     'Content-Type': 'application/json'
                 },
             });
+            closeQualifyMail();
+            notification("success", "SUCCESSFUL", "You have qualified the student");
 
         } else {
             notification("error", "ERROR", "Please select a calification");
@@ -160,9 +161,10 @@ async function sendMail(idStudent) {
                 'Content-Type': 'application/json'
             },
         });
+        notification("success", "SUCCESSFUL", "The mail has been sent correctly");
+        closeModalMail();
     }
 
-    console.log(txtAffair + txtBody);
 }
 
 var modalList = '';
@@ -190,6 +192,11 @@ function openModifyModal() {
 
 function closeModalModify() {
     location.reload();
+}
+
+function notification(type,title,msg){
+
+    toastr[type](msg, title);
 }
 
 async function updateDescription(id) {
@@ -240,7 +247,3 @@ var tableToExcel = (function () {
 })()
 
 
-function notification(type, title, msg) {
-
-    toastr[type](msg, title);
-}

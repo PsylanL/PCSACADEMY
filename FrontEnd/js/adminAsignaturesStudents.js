@@ -254,12 +254,7 @@ function selectChangeClassgroupForStudent() {
             ban = 1;
         }
     }
-    if (ban == 0) {
-        document.getElementById("selectedIdStudent").value = "Empty";
-    }
-
-
-
+    
 }
 
 var teacherWithClassgroupOptions = '';

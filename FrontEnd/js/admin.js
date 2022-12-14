@@ -215,7 +215,12 @@ async function selectChangeAsignature() {
 
 
 
-
+async function listEnrollClassgroup() {
+    const getAsignatures = "http://localhost:8080/api/asignature/list";
+    let request = await fetch(getAsignatures);
+    let response = await request.json();
+    this.AsignaturesOptions = response;
+}
 
 
 
@@ -227,10 +232,16 @@ async function registerEnroll() {
     enroll.schedule = document.getElementById("selected_asignature_schedule").value;
     enroll.description = document.getElementById("selected_description_course").value;
 
+    let check = 0;      
+    for(let i=0; i < this.teachersWithAsignatures.length; i++){ 
+        if(enroll.id == teachersWithAsignatures[i][7]){
+            check = 1;         
+            }
+    }
+    if(check == 0){
 
-
-    if (enroll.id != '' && enroll.idAsignature != 'Empty' && enroll.idTeacher != 'Empty' &&
-        enroll.schedule != '' && enroll.description != '') {
+        if (enroll.id != '' && enroll.idAsignature != 'Empty' && enroll.idTeacher != 'Empty' &&
+        enroll.schedule != '' && enroll.description != '' ) {
         const request = await fetch('http://localhost:8080/api/classgroup/register', {
             method: 'POST',
             headers: {
@@ -245,9 +256,14 @@ async function registerEnroll() {
             notification("success", "SUCCESSFUL", "Registration complete!!");
             setTimeout(function () { window.location.href = 'adminAsignaturesTeacher.html'; }, 1000);
         }
+     }else{
+        notification("error", "Error", "Please enter all fields!!");
+
+     }
 
     } else {
-        notification("error", "Error", "Please enter all fields!!");
+        notification("error", "Error", "The course id already exists");
+
     }
 
 
