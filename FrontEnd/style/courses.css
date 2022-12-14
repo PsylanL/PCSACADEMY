@@ -22,9 +22,10 @@
     margin-top: 1%;
 }
 
-.contenedor-cards{
-    position: relative;
-    margin-left: 7%;
+.container-cards{
+    position: absolute;
+    left: 40%;
+    top: 13%;
     display: flex;
     justify-content: center;
 }
@@ -40,7 +41,7 @@ ol{
 }
 
 ul{
-    padding: 0;
+    padding: 0 !important;
 }
 
 a{
@@ -50,10 +51,12 @@ a{
 }
 
 .container_header{
+    position: relative;
     background:rgb(255, 255, 255);
     min-height: 8vh;
     color: rgb(0, 0, 0);
     box-shadow: rgb(0, 0, 0) 0px 8px 10px -10px;
+    z-index: 2;
 }
 
 .container_header_title{
@@ -62,18 +65,24 @@ a{
 }
 
 .container_header_subtitle{
-    margin-left: 47.5%;
+    margin-left: 45.48%;
 }
 
+.main-container{
+    position: absolute;
+    left: 20%;
+    width: 100rem;
+}
 
 .sidebar{
     position: absolute;
-    top: 10.3vh;
+    top: 9.8vh;
     left: 0;
     width: 15vh;
     height: 90%;
     color: rgb(0, 0, 0);
     background-color: rgb(249, 250, 251);
+
 }
 
 .sidebar_list{
@@ -106,10 +115,6 @@ a{
     width: 100%;
 }
 
-.ornament{
-    padding-top: 12rem;
-    padding-left: 10rem;
-}
 
 .container_trophy{
     position: absolute;
@@ -118,6 +123,8 @@ a{
 
 .trophy{
     margin-left: 2rem;
+    height: 300px;
+    width: 300px;
 }
 
 .trophy_h1{
@@ -131,7 +138,7 @@ a{
 
 
 #simpleDropdown{
-    margin-left: 95%;
+    margin-left: 94%;
 }
 
 #dropdown_container{
@@ -143,12 +150,24 @@ a{
     margin-top: 2rem;
 }
 
-.ornament{
+#evolution{
+    margin-top: 6.3rem;
+}
+
+.container_ornament{
     position:relative;
     top:4.8%;
     left: 77%;
     margin-bottom: 0;
     margin-top: 0.7vh;
+    padding-top: 30%;
+    width: 1rem;
+    
+}
+
+.ornament{
+    height: 300px;
+    width: 300px;
 }
 
 .container_chart{
@@ -209,6 +228,100 @@ a{
     width: 50rem;
     border-radius: 8px;
     box-shadow: 20px 20px 40px rgba(60, 60, 150, 0.25);
+}
+
+
+@media (max-height:768px){
+    .sidebar{
+        top: 12vh;
+    }
+
+    .sidebar_list{
+        font-size: 0.9rem;
+    }
+
+
+    .container-cards{
+        left: 30%;
+        top: 20%;
+    }
+    
+    .ornament{
+        width: 200px;
+        height: 200px;
+    }
+    .container_ornament{
+        margin-top: -5vh;
+    }
+
+    .trophy{
+        width: 200px;
+        height: 200px;
+    }
+
+    .trophy_h1{
+        position: absolute;
+        font-size: 1.6rem;
+    }
+
+    .container_graph{
+        height: 16rem;
+        width: 25rem;
+    }
+
+    .container_circular{
+        height: 260px;
+        width: 250px;
+    }
+
+    .main-container{
+        left: -3%;
+        z-index: -1;
+    }
+
+    .container{
+        position: absolute;
+        left: 15%;
+    }
+
+    #evolution{
+        margin-top: 6rem;
+        margin-left: 4rem;
+    }
+
+    .footer_container{
+        display: flex;
+        background-color:rgb(238, 238, 238)!important;
+        color: rgb(0, 0, 0);
+        justify-content: center;
+        margin-top: 5vh;
+        padding-bottom: 2vh;
+    }
+
+    .footer_container2{
+        display: flex;
+        background-color:rgb(238, 238, 238)!important;
+        color: rgb(0, 0, 0);
+        justify-content: center;
+        margin-top: 5vh;
+        padding-bottom: 2vh;
+        margin-top: 44%;
+    }
+
+    .footer_title{
+        padding-left: 12vh;
+        margin: 0;
+        font-size: 4vh;
+    }
+
+    .sidebar_list{
+        margin-top: 10vh;
+    }
+
+    #simpleDropdown{
+        margin-left: 75%;
+    }
+
 }
 
 #form-teacher{

@@ -24,8 +24,8 @@ header{
 .separator{
     position: absolute;
     top:6vh;
-    min-height:0.2vh;
-    min-width: 80vh;
+    height: 1px;
+    min-width: 100%;
     background-color: #fff;
 }
 
@@ -41,7 +41,6 @@ header.sticky{
 
 header.sticky .separator{
     top: 8.5vh;
-    min-height: 0.3vh;
 }
 
 header.sticky .navbar_menu{
@@ -96,11 +95,11 @@ header.sticky .navbar_menu{
 .container_header .right{
    width: 100%;
    margin-left: 80%; 
-   margin-top: 2vh; 
+   margin-top: 1vh; 
 }
 #link_login{
     color: white;
-    text-decoration: none;
+    height: fa;
 }
 
 .img_header{
@@ -109,7 +108,7 @@ header.sticky .navbar_menu{
 }
 
 .img_team{
-    width: 107.3%;
+    width: 100%;
     height: 100%;
 }
 
@@ -153,7 +152,7 @@ header.sticky .navbar_menu{
 /*FOOTER*/
 .footer_container{
     display: flex;
-    background-color:rgb(226, 225, 225);
+    background-color:rgb(236, 236, 236);
     left: 0;
     color: rgb(94, 94, 94);
     padding-top: 1.8vh;
@@ -222,3 +221,11 @@ header.sticky .navbar_menu{
 .notfound{
     font-size: 2rem;
 }
+
+
+@media(max-height:768px){
+    #link_login{
+        height: 2rem;
+    }
+}
+

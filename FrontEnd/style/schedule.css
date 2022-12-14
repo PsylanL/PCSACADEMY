@@ -7,3 +7,28 @@
     font-family: 'Poppins', sans-serif;
 }
 
+
+@media (max-height:768px){
+    .footer_container{
+        display: flex;
+        background-color:rgb(238, 238, 238)!important;
+        color: rgb(0, 0, 0);
+        justify-content: center;
+        margin-top: 5vh;
+        padding-bottom: 2vh;
+    }
+    
+    .footer_title{
+        padding-left: 12vh;
+        margin: 0;
+        font-size: 4vh;
+    }
+    
+    .sidebar_list{
+        margin-top: 10vh;
+    }
+}
+
+
+
+

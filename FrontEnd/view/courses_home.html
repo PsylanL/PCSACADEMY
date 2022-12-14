@@ -17,12 +17,11 @@
 <body>
     <header>
         <div class="container_header">
-            <h1 class="container_header_title" id="titles">PCSACADEMY</h1>
+            <h1 class="container_header_title" id="titles">CEAPOLI</h1>
             <h3 class="container_header_subtitle" id="sub_titles">Students Hub</h1>
                 <div class="dropdown container" id="dropdown_container">
                     <button type="button" class="btn btn-secondary dropdown-toggle" id="simpleDropdown"
                         data-bs-toggle="dropdown" aria-expanded="false">
-
                     </button>
                     <ul class="dropdown-menu">
                         <li><a onclick="signOut()" class="dropdown-item">Sign out</a></li>
@@ -47,13 +46,46 @@
     </div>
 
    
-    <div class="contenedor-cards" id="contenedor-cards">
-        <h2 class="tittle">My Groupclasses</h2>
+    <div class="container-cards">
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                    content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="https://image.shutterstock.com/image-photo/motorbike-on-road-riding-having-260nw-1838812744.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                    content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
     </div>
 
-    <div class="ornament">
-        <lottie-player  src="https://assets4.lottiefiles.com/packages/lf20_tnpa85i2.json"  background="transparent"  speed="0.7"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-
+    <div class="container_ornament" id="ornament2">
+        <lottie-player class="ornament" src="https://assets4.lottiefiles.com/packages/lf20_tnpa85i2.json"  background="transparent"  speed="0.7"    loop  autoplay></lottie-player>
     </div>
    
     <script src="../js/courses.js"></script>
@@ -62,7 +94,6 @@
         crossorigin="anonymous"></script>
     <script src="../js/global.js"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <script src="../js/AsignaturesStudent.js"></script>
 </body>
 
 </html>

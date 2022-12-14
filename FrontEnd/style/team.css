@@ -1,15 +1,36 @@
 .container_team{
     display: flex;
+    padding-left: 10rem;
     justify-content: space-between;
 }
 
 .container2{
     margin: 10%;
+    padding-left:10vh;
 }
 
 .container_team_h1{
     text-align: center;
 }
+
+.img_team{
+    width: 10rem;
+}
+
+.catsa{
+    position: absolute;
+}
+
+.sa1{
+    top:118rem;
+    right: 12rem;
+}
+
+.sa2{
+    margin-top: 3.15rem;
+    margin-left:1.2rem;
+}
+
 
 .container_team_h3{
     text-align: center;
@@ -28,5 +49,36 @@
     position: absolute;
     right: 0;
     height: 22rem !important; 
-    width: 25rem !important;
+    width: 28rem !important;
+}
+
+@media(max-height:768px){
+    .catsa{
+        position: relative;
+    }
+
+    .sa1{
+        top: 0;
+        right: 0;
+    }
+    .sa2{
+        margin: 0;
+    }
+
+    .container_team{
+        padding: 0;
+        justify-content: none;
+    }
+    .titulo_cat{
+        padding-right: vh;
+    }
+
+    .container_logo{
+        margin-left: 2vh;
+        margin-right: 2vh;
+    }
+    .mike_team{
+    height: 15rem !important; 
+    width: 18rem !important;
+    }
 }

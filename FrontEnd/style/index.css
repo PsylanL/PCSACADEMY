@@ -159,3 +159,26 @@
 	}
 } 
 
+@media(max-height:768px){
+    .img_mintransporte{
+        top: 69vh;
+        left: 72%;
+    }
+
+    .left_h1{
+        font-size: 2rem;   
+    }
+
+    .grid_areas_title{
+        font-size: 1.5rem;
+    }
+
+    .container3{
+        margin-left: 20%;
+    }
+
+    .container2_title{
+        margin-left: 29vh;
+    }
+}
+
