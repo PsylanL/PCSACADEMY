@@ -10,7 +10,9 @@ public interface TeacherDao {
 	String register(Teacher teacher);
 	
 	List<Teacher> list();
-
+    
+    List<Teacher> listTS();
+    
     Teacher getUserByCredentials(Teacher teacher, String password);
 
     List<Teacher> search(int id);

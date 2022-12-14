@@ -55,14 +55,21 @@ public class TeacherDaoImp implements TeacherDao {
 		}
 		return "fail";
 
+	}//Metodo para listar los profesores
+    @SuppressWarnings("unchecked")
+	@Override
+	public List<Teacher> listTS() {
+		String query = "from Teacher";
+		return entityManager.createQuery(query).getResultList();
 	}
+
 	
 	//Metodo para listar los profesores
     @SuppressWarnings("unchecked")
 	@Override
 	public List<Teacher> list() {
-		String query = "from Teacher";
-		return entityManager.createQuery(query).getResultList();
+		String query = "select *from teacher";
+		return entityManager.createNativeQuery(query).getResultList();
 	}
 
 	@Override

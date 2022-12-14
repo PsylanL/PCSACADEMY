@@ -47,6 +47,12 @@ public class TeacherController {
         return teacherDao.list();
     }
 
+    //Metodo que se llama al ejecutar request desde front
+    @GetMapping("/listTS")
+    public List<Teacher> listTS(){
+        return teacherDao.listTS();
+    }
+
     @GetMapping("/search/{id}")
     public List<Teacher> search (@PathVariable int id){
         return teacherDao.search(id);

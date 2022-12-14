@@ -134,7 +134,7 @@ async function ListAsignaturesTeachers() {
 
 
 async function listTeachers() {
-    const getTeachers = "http://localhost:8080/api/teacher/list";
+    const getTeachers = "http://localhost:8080/api/teacher/listTS";
     let request = await fetch(getTeachers);
     let response = await request.json();
     this.teacherOptions = response;
