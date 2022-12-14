@@ -61,8 +61,8 @@ public class TeacherDaoImp implements TeacherDao {
     @SuppressWarnings("unchecked")
 	@Override
 	public List<Teacher> list() {
-		String query = "select * from teacher";
-		return entityManager.createNativeQuery(query).getResultList();
+		String query = "from Teacher";
+		return entityManager.createQuery(query).getResultList();
 	}
 
 	@Override

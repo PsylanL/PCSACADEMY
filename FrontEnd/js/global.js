@@ -7,7 +7,6 @@ async function getStudent(id) {
     let request = await fetch(getStudent);
     let response = await request.json();
     this.student = response[0];
-    console.log(student);
     imprimirNombre(student);
 }
 

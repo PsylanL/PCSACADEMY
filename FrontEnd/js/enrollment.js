@@ -96,7 +96,10 @@ function closeModal() {
 
 var dataGroup = '';
 async function selectChange() {
-
+    $("#idGroup").empty();
+    var valSelectGr = document.getElementById('idGroup');
+    valSelectGr.options[0] =  new Option('Select', 'value =' + 0);
+    $("#idGro").val("");
     var valSelect = document.getElementById('idAsignature');
     var selected = valSelect.options[valSelect.selectedIndex].text;
     var ban = 0;
@@ -125,7 +128,7 @@ async function selectChange() {
 
         } else {
             $("#idGroup").empty();
-            selectGroup.options[0] = new Option('Seleccione', 'value =' + 0);
+            selectGroup.options[0] = new Option('Select', 'value =' + 0);
 
         }
 
@@ -181,10 +184,10 @@ async function register(enrollU) {
     }).then((response) => {
         if (response.status != 200) {
             msg = 'ERROR 555';
-            notification("error", msg, "Has visto esta asignatura dos veces, no puedes matricularla");
+            notification("error", msg, "You have seen this course twice, you cannot register it.");
 
         } else {
-            msg = 'REGISTRADO CORRECTAMENTE';
+            msg = 'Correctly registered';
             notification("success", msg, "");
 
         }
@@ -209,11 +212,22 @@ const expresiones = {
 async function registerEnroll() {
     let enroll = {};
     enroll.countSeen = 0;
-    enroll.idAsignature = parseInt($('#idAs').val());
-    enroll.idGroup = parseInt($('#idGro').val());
+
+    if($('#idAs').val() != ""){
+        enroll.idAsignature = parseInt($('#idAs').val());
+    }
+    if($('#idGro').val() != ""){
+        enroll.idGroup = parseInt($('#idGro').val());
+    }
+    
+    console.log(enroll.idAsignature);
     enroll.idStudent = IdStudent;
     enroll.status = "In Progress";
-    register(enroll);
+    if($('#idAs').val() != "" && $('#idGro').val() != "" && enroll.idStudent != "" ){
+        register(enroll);
+    }else{
+        notification("error", "ERROR", "Select the options");
+    }
 }
 
 

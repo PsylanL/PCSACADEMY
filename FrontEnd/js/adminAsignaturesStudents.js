@@ -123,6 +123,11 @@ function openModalEnrollStudent() {
     ModalEnrollStudent = new bootstrap.Modal(document.getElementById("modalEnrollAsignStudents"), {
         keyboard: false
     })
+    document.getElementById('selectedIdStudent').value = "Empty"
+    document.getElementById('selectedIdTeacher').value = "Empty"
+    document.getElementById('selectedIdAsignature').value = "Empty"
+    document.getElementById('selectedIdClassgroup').value = "Empty"
+
 
     ModalEnrollStudent.show();
     listStudent();
@@ -156,7 +161,6 @@ async function listStudent() {
     let request = await fetch(getStudent);
     let response = await request.json();
     this.studentOptions = response;
-    console.log(studentOptions);
 
     var selectOp = document.getElementById("nameStudent");
 
@@ -169,10 +173,20 @@ async function listStudent() {
 }
 
 function selectChangeForStudent() {
+    
+    $("#nameAsignature").val(0);
+    $("#selectedCourseAsignature").val("Empty");
+    $("#selectedIdAsignature").val("Empty");
+    $("#nameTeacher").val(0);
+    $("#selectedIdTeacher").val("Empty");
+    $("#scheduleClassgroup").val(0);
+    $("#selectedDescriptionClassgroup").val("Empty");
+    $("#selectedIdClassgroup").val("Empty");
+
+
     var valSelect = document.getElementById('nameStudent');
     var selected = valSelect.options[valSelect.selectedIndex].text;
     var ban = 0;
-    console.log(AsignaturesOptions)
     for (let es of studentOptions) {
         if (selected == es[3] + " " + es[2]) {
             document.getElementById('selectedIdStudent').value = es[0];
@@ -191,6 +205,9 @@ var classgroupsAvailables = '';
 
 async function selectChangeTeacherForStudent() {
     var valSelect = document.getElementById('nameTeacher');
+    $("#scheduleClassgroup").val(0);
+    $("#selectedDescriptionClassgroup").val("Empty");
+    $("#selectedIdClassgroup").val("Empty");
     var selected = valSelect.options[valSelect.selectedIndex].text;
     var ban = 0;
 
@@ -206,12 +223,12 @@ async function selectChangeTeacherForStudent() {
     }
 
     if (document.getElementById('nameTeacher').value != '' &&
-        document.getElementById('selectedIdTeacher').value != '') {
+        document.getElementById('selectedIdTeacher').value != '' &&
+        document.getElementById('selectedIdTeacher').value != "Empty") {
         const getClassgroups = "http://localhost:8080/api/classgroup/classgroupsAvailables/" + document.getElementById('selectedIdTeacher').value;
         let request = await fetch(getClassgroups);
         let response = await request.json();
         this.classgroupsAvailables = response;
-        console.log(classgroupsAvailables);
 
         var selectOptionsClassgroups = document.getElementById("scheduleClassgroup");
 
@@ -225,6 +242,8 @@ async function selectChangeTeacherForStudent() {
 }
 
 function selectChangeClassgroupForStudent() {
+    $("#selectedDescriptionClassgroup").val("Empty");
+    $("#selectedIdClassgroup").val("Empty");
     var valSelect = document.getElementById('scheduleClassgroup');
     var selected = valSelect.options[valSelect.selectedIndex].text;
     var ban = 0;
@@ -246,6 +265,11 @@ function selectChangeClassgroupForStudent() {
 var teacherWithClassgroupOptions = '';
 
 async function selectChangeAsignature() {
+    $("#nameTeacher").val(0);
+    $("#selectedIdTeacher").val("Empty");
+    $("#scheduleClassgroup").val(0);
+    $("#selectedDescriptionClassgroup").val("Empty");
+    $("#selectedIdClassgroup").val("Empty");
 
     var valSelect = document.getElementById('nameAsignature');
     var selected = valSelect.options[valSelect.selectedIndex].text;
@@ -268,13 +292,14 @@ async function selectChangeAsignature() {
         document.getElementById("selectedIdAsignature").value = "Empty";
     }
     if (document.getElementById('nameAsignature').value != '' &&
+        document.getElementById('nameAsignature').value != '-' &&
         document.getElementById('selectedCourseAsignature').value != '' &&
-        document.getElementById('selectedIdAsignature').value != '') {
+        document.getElementById('selectedIdAsignature').value != '' &&
+        document.getElementById('selectedIdAsignature').value != "Empty") {
         const getTeachers = "http://localhost:8080/api/classgroup/listTeachersWithClassgroups/" + document.getElementById('selectedIdAsignature').value;
         let request = await fetch(getTeachers);
         let response = await request.json();
         this.teacherWithClassgroupOptions = response;
-        console.log(teacherWithClassgroupOptions);
 
         var selectOptionsTeacher = document.getElementById("nameTeacher");
 
@@ -283,11 +308,7 @@ async function selectChangeAsignature() {
         }
     }
 
-    if (selected == "Select") {
-        console.log("entro")
-        selectOptionsTeacher.innerHTML = '<option value="0">Select</option>';
-        document.getElementById('selectedIdTeacher').value = "Empty"
-    }
+
 }
 
 
@@ -303,13 +324,10 @@ async function registerEnrollAsigForStudents() {
     enroll.idClassGroup = document.getElementById("selectedIdClassgroup").value;
     enroll.status = "In progress";
 
-    console.log(enroll);
-
     const getEnrollment = "http://localhost:8080/api/enrollment/listAllEnrollment";
     let request = await fetch(getEnrollment);
     let response = await request.json();
     this.listOfEnrollment = response;
-    console.log(listOfEnrollment);
 
     for (let option of listOfEnrollment) {
         if (enroll.idStudent == option.idStudent) {
@@ -336,7 +354,6 @@ async function registerEnrollAsigForStudents() {
 
     if (flag == 0) {
         if (enroll.idStudent != 'Empty' && enroll.idAsignature != 'Empty' && enroll.idClassgroup != 'Empty') {
-            console.log(enroll);
             const request = await fetch('http://localhost:8080/api/enrollment/register', {
                 method: 'POST',
                 headers: {
@@ -354,6 +371,9 @@ async function registerEnrollAsigForStudents() {
                 }
 
             })
+
+        }else{
+            notification("error", "ERROR", "Complete the fields ")
 
         }
 

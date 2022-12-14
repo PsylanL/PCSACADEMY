@@ -98,9 +98,9 @@ function openModalEnroll() {
     ModalEnroll.show();
     listTeachers();
     listAsignatures();
-    document.getElementById("selected_name_teacher").value = "emty";
-    document.getElementById("selectedCourseAsignature").value = "emty";
-    document.getElementById("selectedIdAsignature").value = "emty";
+    document.getElementById("selected_name_teacher").value = "Empty";
+    document.getElementById("selectedCourseAsignature").value = "Empty";
+    document.getElementById("selectedIdAsignature").value = "Empty";
 }
 
 function closeModalEnroll() {
@@ -192,20 +192,21 @@ async function selectChangeAsignature() {
     var ban = 0;
 
         for (let as of AsignaturesOptions) {
+            
             if (selected == as.name) {
                 //console.log(as);
                 if (as.course == 1) {
                     document.getElementById("selectedCourseAsignature").value = "Motorcycle course A2";
                 } else if (as.course == 2) {
                     document.getElementById("selectedCourseAsignature").value = "Automobiles course B1";
-
                 }
+
                 document.getElementById("selectedIdAsignature").value = as.id;
                 ban = 1;
             }
         }
         if (ban == 0) {
-            document.getElementById("selected_asignature").value = "Empty";
+            document.getElementById("selectedIdAsignature").value = "Empty";
         }
 
     
@@ -230,7 +231,6 @@ async function registerEnroll() {
 
     if (enroll.id != '' && enroll.idAsignature != 'Empty' && enroll.idTeacher != 'Empty' &&
         enroll.schedule != '' && enroll.description != '') {
-        console.log(enroll);
         const request = await fetch('http://localhost:8080/api/classgroup/register', {
             method: 'POST',
             headers: {
