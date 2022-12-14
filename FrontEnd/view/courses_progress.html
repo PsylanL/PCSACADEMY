@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/courses.css">
+    <link rel="stylesheet" href="../style/courseProgress.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
@@ -27,8 +28,6 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li><a onclick="signOut()" class="dropdown-item">Sign out</a></li>
-                        <li><a href="#" class="dropdown-item">My courses</a></li>
-                        <li><a href="#" class="dropdown-item">Enroll Asignature</a></li>
                     </ul>
                 </div>
                 
@@ -38,7 +37,7 @@
     <div class="sidebar">
         <ul class="sidebar_list">
             <li class="sidebar_list_item"><a href="../view/courses_home.html">Home</a></li>
-            <li class="sidebar_list_item"><a href="../view/courses_enroll.html">Enrollment</a></li>
+            <li class="sidebar_list_item"><a href="../view/courses_enroll.html">Asignature Enroll</a></li>
             <li class="sidebar_list_item"><a href="../view/courses_schedule.html">Schedule</a></li>
             <li class="sidebar_list_item"><a href="../view/academicEvolution.html">Evolution</a></li>
             <li class="sidebar_list_item active">My progress</li>
@@ -60,6 +59,12 @@
         <canvas id="myChart"></canvas>
       </div>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+        <footer>
+            <div class="footer_container2">
+                <h1 class="footer_title">CEAPOLI © 2022</h1>
+            </div>
+        </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="../js/courses.js"></script>

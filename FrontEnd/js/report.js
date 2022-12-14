@@ -33,10 +33,10 @@ function contador(data){
     if(element== "In Progress"){
       this.contInprogress++
     }
-    if(element=="Completed"){
+    if(element=="Approved"){
       this.contCompleted++
     }
-    if(element=="Failed"){
+    if(element=="Disapproved"){
       this.contFailed++
     }
   });
@@ -49,7 +49,7 @@ consulta(IdStudent)
 
   function setter(contCompleted){
   var currentProgress2 = contCompleted*10
-  console.log(currentProgress2)
+  //console.log(currentProgress2)
   if(currentProgress2 == 0){
     currentProgress2=1
   }
@@ -80,7 +80,7 @@ function chart(contInprogress,contCompleted,contFailed){
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['In Progress','Completed','Failed'],
+      labels: ['In Progress','Approved','Dissaproved'],
       datasets: [{
         label: '# of courses',
         data: [contInprogress,contCompleted,contFailed,10],

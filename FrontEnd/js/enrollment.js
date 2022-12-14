@@ -2,6 +2,7 @@ var courses = '';
 var data = '';
 var IdStudent = parseInt(localStorage.id);
 
+
 async function listEnrollment(Id) {
     if (courses.length != 0) {
         const getSchedule = 'http://localhost:8080/api/enrollment/list/' + Id;
@@ -217,13 +218,14 @@ async function registerEnroll() {
         enroll.idAsignature = parseInt($('#idAs').val());
     }
     if($('#idGro').val() != ""){
-        enroll.idGroup = parseInt($('#idGro').val());
+        enroll.idClassGroup = parseInt($('#idGro').val());
     }
     
     console.log(enroll.idAsignature);
     enroll.idStudent = IdStudent;
     enroll.status = "In Progress";
     if($('#idAs').val() != "" && $('#idGro').val() != "" && enroll.idStudent != "" ){
+        console.log(enroll)
         register(enroll);
     }else{
         notification("error", "ERROR", "Select the options");

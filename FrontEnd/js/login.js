@@ -31,7 +31,7 @@ async function loginStudent() {
                     window.location.href = "courses_home.html";
                 }
                 if (credentials[2] == 'teacher') {
-                    window.location.href = "teacherHome.html";
+                    window.location.href = "teacherAsignatures.html";
                 }
                 if (credentials[2] == 'admin') {
                     window.location.href = "adminHome.html";
